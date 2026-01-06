@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RealEstateManagement.Business\RealEstateManagement.Business.csproj" />
+    <ProjectReference Include="..\RealEstateManagement.Data\RealEstateManagement.Data.csproj" />
+  </ItemGroup>
+
 </Project>

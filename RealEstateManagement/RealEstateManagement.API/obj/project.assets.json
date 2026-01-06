@@ -36,6 +36,42 @@
             "related": ".pdb;.xml"
           }
         }
+      },
+      "RealEstateManagement.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "RealEstateManagement.Entity": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RealEstateManagement.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RealEstateManagement.Business.dll": {}
+        }
+      },
+      "RealEstateManagement.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "RealEstateManagement.Entity": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RealEstateManagement.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RealEstateManagement.Data.dll": {}
+        }
+      },
+      "RealEstateManagement.Entity/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/RealEstateManagement.Entity.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RealEstateManagement.Entity.dll": {}
+        }
       }
     }
   },
@@ -75,11 +111,28 @@
         "microsoft.openapi.2.0.0.nupkg.sha512",
         "microsoft.openapi.nuspec"
       ]
+    },
+    "RealEstateManagement.Business/1.0.0": {
+      "type": "project",
+      "path": "../RealEstateManagement.Business/RealEstateManagement.Business.csproj",
+      "msbuildProject": "../RealEstateManagement.Business/RealEstateManagement.Business.csproj"
+    },
+    "RealEstateManagement.Data/1.0.0": {
+      "type": "project",
+      "path": "../RealEstateManagement.Data/RealEstateManagement.Data.csproj",
+      "msbuildProject": "../RealEstateManagement.Data/RealEstateManagement.Data.csproj"
+    },
+    "RealEstateManagement.Entity/1.0.0": {
+      "type": "project",
+      "path": "../RealEstateManagement.Entity/RealEstateManagement.Entity.csproj",
+      "msbuildProject": "../RealEstateManagement.Entity/RealEstateManagement.Entity.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "Microsoft.AspNetCore.OpenApi >= 10.0.0"
+      "Microsoft.AspNetCore.OpenApi >= 10.0.0",
+      "RealEstateManagement.Business >= 1.0.0",
+      "RealEstateManagement.Data >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -106,7 +159,14 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\GitHub\\RealEstateManagementApi\\RealEstateManagement\\RealEstateManagement.Business\\RealEstateManagement.Business.csproj": {
+              "projectPath": "C:\\GitHub\\RealEstateManagementApi\\RealEstateManagement\\RealEstateManagement.Business\\RealEstateManagement.Business.csproj"
+            },
+            "C:\\GitHub\\RealEstateManagementApi\\RealEstateManagement\\RealEstateManagement.Data\\RealEstateManagement.Data.csproj": {
+              "projectPath": "C:\\GitHub\\RealEstateManagementApi\\RealEstateManagement\\RealEstateManagement.Data\\RealEstateManagement.Data.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

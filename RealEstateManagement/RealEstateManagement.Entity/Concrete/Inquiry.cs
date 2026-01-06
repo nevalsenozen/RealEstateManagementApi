@@ -1,0 +1,15 @@
+using RealEstateManagement.Entity.Abstract;
+
+namespace RealEstateManagement.Entity.Concrete
+{
+    public class Inquiry : BaseEntity
+    {
+        public string FullName { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public string Message { get; set; }
+
+        public int PropertyId { get; set; }
+        public Property Property { get; set; }
+    }
+}

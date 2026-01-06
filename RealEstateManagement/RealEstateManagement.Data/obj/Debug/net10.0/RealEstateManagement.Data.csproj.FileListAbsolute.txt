@@ -1,0 +1,16 @@
+C:\GitHub\RealEstateManagementApi\RealEstateManagement\RealEstateManagement.Data\bin\Debug\net10.0\RealEstateManagement.Data.deps.json
+C:\GitHub\RealEstateManagementApi\RealEstateManagement\RealEstateManagement.Data\bin\Debug\net10.0\RealEstateManagement.Data.dll
+C:\GitHub\RealEstateManagementApi\RealEstateManagement\RealEstateManagement.Data\bin\Debug\net10.0\RealEstateManagement.Data.pdb
+C:\GitHub\RealEstateManagementApi\RealEstateManagement\RealEstateManagement.Data\bin\Debug\net10.0\RealEstateManagement.Entity.dll
+C:\GitHub\RealEstateManagementApi\RealEstateManagement\RealEstateManagement.Data\bin\Debug\net10.0\RealEstateManagement.Entity.pdb
+C:\GitHub\RealEstateManagementApi\RealEstateManagement\RealEstateManagement.Data\obj\Debug\net10.0\RealEstateManagement.Data.csproj.AssemblyReference.cache
+C:\GitHub\RealEstateManagementApi\RealEstateManagement\RealEstateManagement.Data\obj\Debug\net10.0\RealEstateManagement.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\GitHub\RealEstateManagementApi\RealEstateManagement\RealEstateManagement.Data\obj\Debug\net10.0\RealEstateManagement.Data.AssemblyInfoInputs.cache
+C:\GitHub\RealEstateManagementApi\RealEstateManagement\RealEstateManagement.Data\obj\Debug\net10.0\RealEstateManagement.Data.AssemblyInfo.cs
+C:\GitHub\RealEstateManagementApi\RealEstateManagement\RealEstateManagement.Data\obj\Debug\net10.0\RealEstateManagement.Data.csproj.CoreCompileInputs.cache
+C:\GitHub\RealEstateManagementApi\RealEstateManagement\RealEstateManagement.Data\obj\Debug\net10.0\RealEstateManagement.Data.sourcelink.json
+C:\GitHub\RealEstateManagementApi\RealEstateManagement\RealEstateManagement.Data\obj\Debug\net10.0\RealEsta.6403956A.Up2Date
+C:\GitHub\RealEstateManagementApi\RealEstateManagement\RealEstateManagement.Data\obj\Debug\net10.0\RealEstateManagement.Data.dll
+C:\GitHub\RealEstateManagementApi\RealEstateManagement\RealEstateManagement.Data\obj\Debug\net10.0\refint\RealEstateManagement.Data.dll
+C:\GitHub\RealEstateManagementApi\RealEstateManagement\RealEstateManagement.Data\obj\Debug\net10.0\RealEstateManagement.Data.pdb
+C:\GitHub\RealEstateManagementApi\RealEstateManagement\RealEstateManagement.Data\obj\Debug\net10.0\ref\RealEstateManagement.Data.dll
