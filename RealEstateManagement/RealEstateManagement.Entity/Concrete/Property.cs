@@ -3,14 +3,14 @@ using RealEstateManagement.Entity.Enums;
 
 namespace RealEstateManagement.Entity.Concrete
 {
-    public class Property : BaseEntity
+    public class Property : BaseClass
     {
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public string Title { get; set; } = "";
+        public string Description { get; set; } = "";
         public decimal Price { get; set; }
 
-        public string Address { get; set; }
-        public string City { get; set; }
+        public string Address { get; set; } = "";
+        public string City { get; set; } = "";
         public string? District { get; set; }
 
         public int Rooms { get; set; }
@@ -24,10 +24,10 @@ namespace RealEstateManagement.Entity.Concrete
         public PropertyStatus Status { get; set; }
 
         public int PropertyTypeId { get; set; }
-        public PropertyType PropertyType { get; set; }
+        public PropertyType? PropertyType { get; set; } 
 
-        public ICollection<PropertyImage> Images { get; set; }
-        public ICollection<Inquiry> Inquiries { get; set; }
+        public ICollection<PropertyImage>? Images { get; set; } 
+        public ICollection<Inquiry>? Inquiries { get; set; }
 
     }
 }
