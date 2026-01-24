@@ -1,33 +1,75 @@
-using Microsoft.AspNetCore.Mvc;
-using RealEstateManagement.Business.Concrete;
+using RealEstateManagement.Business.Abstract;
 using RealEstateManagement.Business.Dto;
-using RealEstateManagement.Entity.Concrete;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace RealEstateManagement.API.Controllers
 {
+    [Route("api/properties")]
     [ApiController]
-    [Route("api/[controller]")]
-    public class PropertyController : ControllerBase
+    public class PropertiesController : CustomControllerBase
     {
-        private readonly PropertyService _service;
+        private readonly IPropertyService _propertyService;
 
-        public PropertyController(PropertyService service)
+        public PropertiesController(IPropertyService propertyService)
         {
-            _service = service;
+            _propertyService = propertyService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] PropertyCreateDto dto)
-        {
-            var property = await _service.CreatePropertyAsync(dto);
-            return Ok(property); // Şu an entity dönüyor, response DTO ekleyebiliriz
-        }
-
+        
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAllPropertiesPaged([FromQuery] PropertyFilterDto filterDto)
         {
-            var properties = await _service.GetAllPropertiesAsync();
-            return Ok(properties);
+            var response = await _propertyService.GetAllPagedAsync(filterDto);
+
+            return CreateResult(response);
+        }
+
+
+        
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetPropertyById(int id)
+        {
+            var response = await _propertyService.GetAsync(id);
+            return CreateResult(response);
+        }
+
+
+
+        [Authorize(Roles = "Agent,Admin")]
+        [HttpPost]
+        public async Task<IActionResult> CreateProperty([FromBody] PropertyCreateDto propertyCreateDto)
+        {
+            var response = await _propertyService.CreateAsync(propertyCreateDto);
+            return CreateResult(response);
+        }
+
+       
+        [Authorize(Roles = "Agent,Admin")]
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateProperty(int id, [FromBody] PropertyUpdateDto propertyUpdateDto)
+        {
+            var response = await _propertyService.UpdateAsync(id, propertyUpdateDto);
+            return CreateResult(response);
+        }
+
+        
+        [Authorize(Roles = "Agent,Admin")]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> SoftDeleteProperty(int id)
+        {
+            var response = await _propertyService.SoftDeleteAsync(id);
+            return CreateResult(response);
+        }
+
+        
+        //(Agent kendi ilanları)
+        [Authorize(Roles = "Agent")]
+        [HttpGet("my-properties")]
+        public async Task<IActionResult> GetMyProperties([FromQuery] PropertyFilterDto filterDto)
+        {
+            var response = await _propertyService.GetMyPropertiesAsync(filterDto);
+            return CreateResult(response);
         }
     }
 }

@@ -1,47 +1,59 @@
 using Microsoft.EntityFrameworkCore;
 using RealEstateManagement.Data;
 using RealEstateManagement.Business.Mapping;
-using Microsoft.OpenApi;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
-var builder = WebApplication.CreateBuilder(args);
+        var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllers();
+       
+        builder.Services.AddControllers();
 
-// AutoMapper register
-builder.Services.AddAutoMapper(typeof(MappingProfile));
+        
+        builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-// DbContext register
-builder.Services.AddDbContext<RealEstateManagementDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSql")));
+        
+        builder.Services.AddDbContext<RealEstateManagementDbContext>(options =>
+            options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSql")));
 
-// Swagger register
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "RealEstate API",
-        Version = "v1"
-    });
-});
+       
+        builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
 
-var app = builder.Build(); // ⚠️ BU SATIR ŞART
+                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                    ValidAudience = builder.Configuration["Jwt:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!)
+                    )
+                };
+            });
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "RealEstate API v1");
-    });
-}
 
-app.UseHttpsRedirection();
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
 
-app.UseAuthorization();
+        var app = builder.Build();
 
-app.MapControllers();
 
-app.Run();
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
+
+        app.UseHttpsRedirection();
+
+        app.UseAuthentication();
+        app.UseAuthorization();
+
+        app.MapControllers();
+
+        app.Run();
