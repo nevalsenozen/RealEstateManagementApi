@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Huhl5uTHKhM=",
+  "dgSpecHash": "yFv50j+Xf7k=",
   "success": true,
   "projectFilePath": "C:\\GitHub\\RealEstateManagementApi\\RealEstateManagement\\RealEstateManagement.API\\RealEstateManagement.API.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,8 @@
     "C:\\Users\\neval\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
     "C:\\Users\\neval\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\neval\\.nuget\\packages\\jwt\\11.0.0\\jwt.11.0.0.nupkg.sha512",
+    "C:\\Users\\neval\\.nuget\\packages\\linqkit.core\\1.2.9\\linqkit.core.1.2.9.nupkg.sha512",
+    "C:\\Users\\neval\\.nuget\\packages\\linqkit.microsoft.entityframeworkcore\\10.0.9\\linqkit.microsoft.entityframeworkcore.10.0.9.nupkg.sha512",
     "C:\\Users\\neval\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\10.0.2\\microsoft.aspnetcore.authentication.jwtbearer.10.0.2.nupkg.sha512",
     "C:\\Users\\neval\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\10.0.2\\microsoft.aspnetcore.identity.entityframeworkcore.10.0.2.nupkg.sha512",
     "C:\\Users\\neval\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.0\\microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",

@@ -18,12 +18,21 @@ namespace RealEstateManagement.API.Controllers
 
         
         [HttpGet]
-        public async Task<IActionResult> GetAllPropertiesPaged([FromQuery] PropertyFilterDto filterDto)
+       public async Task<IActionResult> GetAllPropertiesPaged([FromQuery] PropertyFilterDto filterDto)
         {
-            var response = await _propertyService.GetAllPagedAsync(filterDto);
+            // PropertyFilterDto içindeki sayfalama bilgilerini PaginationQueryDto'ya dönüştür
+            var paginationQuery = new PaginationQueryDto
+            {
+                PageNumber = filterDto.PageNumber,
+                PageSize = filterDto.PageSize
+            };
+
+            // Servise uygun tipte parametre gönder
+            var response = await _propertyService.GetAllPagedAsync(paginationQuery);
 
             return CreateResult(response);
-        }
+    }
+
 
 
         

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Ak3NYUpjd2k=",
+  "dgSpecHash": "h7WLOG/S2Pw=",
   "success": true,
   "projectFilePath": "C:\\GitHub\\RealEstateManagementApi\\RealEstateManagement\\RealEstateManagement.Business\\RealEstateManagement.Business.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,8 @@
     "C:\\Users\\neval\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\neval\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
     "C:\\Users\\neval\\.nuget\\packages\\jwt\\11.0.0\\jwt.11.0.0.nupkg.sha512",
+    "C:\\Users\\neval\\.nuget\\packages\\linqkit.core\\1.2.9\\linqkit.core.1.2.9.nupkg.sha512",
+    "C:\\Users\\neval\\.nuget\\packages\\linqkit.microsoft.entityframeworkcore\\10.0.9\\linqkit.microsoft.entityframeworkcore.10.0.9.nupkg.sha512",
     "C:\\Users\\neval\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.3.0\\microsoft.aspnetcore.authentication.2.3.0.nupkg.sha512",
     "C:\\Users\\neval\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.3.0\\microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
     "C:\\Users\\neval\\.nuget\\packages\\microsoft.aspnetcore.authentication.cookies\\2.3.0\\microsoft.aspnetcore.authentication.cookies.2.3.0.nupkg.sha512",

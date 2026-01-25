@@ -1,3 +1,4 @@
+using LinqKit;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using RealEstateManagement.Data.Abstract;
@@ -7,69 +8,94 @@ namespace RealEstateManagement.Data.Concrete;
 public class Repository<T> : IRepository<T> where T : class
 {
     protected readonly RealEstateManagementDbContext _context;
-    protected readonly DbSet<T> _dbSet;
+    private readonly DbSet<T> _dbSet;
 
     public Repository(RealEstateManagementDbContext context)
     {
         _context = context;
-        _dbSet = context.Set<T>();
+        _dbSet = _context.Set<T>();
     }
 
-    public async Task<T?> GetAsync(int id)
+    public async Task<IEnumerable<T>> GetAllAsync()
     {
-        return await _dbSet.FindAsync(id);
+        var result = await _dbSet.ToListAsync();
+        return result;
     }
 
-    public async Task<T?> GetAsync(
-        Expression<Func<T, bool>> predicate,
-        bool asNoTracking = true,
-        params Expression<Func<T, object>>[] includes)
+    public async Task<IEnumerable<T>> GetAllAsync(
+        Expression<Func<T, bool>> predicate = null!,
+        Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null!,
+        bool showIsDeleted = false,
+        bool asExpanded = false,
+        params Func<IQueryable<T>, IQueryable<T>>[] includes)
     {
         IQueryable<T> query = _dbSet;
 
-        if (asNoTracking)
-            query = query.AsNoTracking();
+        if (showIsDeleted)
+        {
+            query = query.IgnoreQueryFilters();
+        }
 
-        foreach (var include in includes)
-            query = query.Include(include);
+        if (asExpanded)
+        {
+            query = query.AsExpandable();
+        }
 
-        return await query.FirstOrDefaultAsync(predicate);
+        if (predicate != null)
+        {
+            query = query.Where(predicate);
+        }
+
+        if (orderBy != null)
+        {
+            query = orderBy(query);
+        }
+
+        if (includes != null && includes.Length > 0)
+        {
+            query = includes.Aggregate(query, (current, include) => include(current));
+        }
+
+        var result = await query.ToListAsync();
+        return result;
     }
 
-    public async Task<List<T>> GetAllAsync()
+    public async Task<T> GetAsync(int id)
     {
-        return await _dbSet.ToListAsync();
+        var result = await _dbSet.FindAsync(id);
+        return result!;
     }
 
-    public async Task<List<T>> GetAllAsync(
+    public async Task<T> GetAsync(
         Expression<Func<T, bool>> predicate,
-        bool asNoTracking = true,
-        params Expression<Func<T, object>>[] includes)
+        bool showIsDeleted = false,
+        bool asExpanded = false,
+        params Func<IQueryable<T>, IQueryable<T>>[] includes)
     {
-        IQueryable<T> query = _dbSet.Where(predicate);
+        IQueryable<T> query = _dbSet;
 
-        if (asNoTracking)
-            query = query.AsNoTracking();
+        if (showIsDeleted)
+        {
+            query = query.IgnoreQueryFilters();
+        }
 
-        foreach (var include in includes)
-            query = query.Include(include);
+        if (asExpanded)
+        {
+            query = query.AsExpandable();
+        }
 
-        return await query.ToListAsync();
-    }
+        if (predicate != null)
+        {
+            query = query.Where(predicate);
+        }
 
-    public async Task<int> CountAsync()
-    {
-        return await _dbSet.CountAsync();
-    }
+        if (includes != null)
+        {
+            query = includes.Aggregate(query, (current, include) => include(current));
+        }
 
-    public async Task<int> CountAsync(Expression<Func<T, bool>> predicate)
-    {
-        return await _dbSet.CountAsync(predicate);
-    }
-
-    public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate)
-    {
-        return await _dbSet.AnyAsync(predicate);
+        var result = await query.FirstOrDefaultAsync();
+        return result!;
     }
 
     public async Task AddAsync(T entity)
@@ -82,8 +108,31 @@ public class Repository<T> : IRepository<T> where T : class
         _dbSet.Update(entity);
     }
 
-    public void Delete(T entity)
+    public void Remove(T entity)
     {
         _dbSet.Remove(entity);
+    }
+
+    public async Task<int> CountAsync()
+    {
+        var result = await _dbSet.CountAsync();
+        return result;
+    }
+
+    public async Task<int> CountAsync(Expression<Func<T, bool>> predicate)
+    {
+        var result = await _dbSet.CountAsync(predicate);
+        return result;
+    }
+
+    public async Task<bool> ExistsAsync(Expression<Func<T, bool>> predicate)
+    {
+        var result = await _dbSet.AnyAsync(predicate);
+        return result;
+    }
+
+    public void BatchUpdate(IEnumerable<T> entities)
+    {
+        _dbSet.UpdateRange(entities);
     }
 }
