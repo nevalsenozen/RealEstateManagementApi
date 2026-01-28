@@ -1,9 +1,8 @@
-using System;
-
-namespace RealEstateManagement.Business.Dto;
-
-public class InquiryUpdateDto : InquiryCreateDto
+namespace RealEstateManagement.Business.Dto
 {
-    public int Id { get; set; }
-
+    public class InquiryUpdateDto
+    {
+        public int Id { get; set; }
+        public string Status { get; set; } = "";
+    }
 }

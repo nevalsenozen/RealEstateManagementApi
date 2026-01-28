@@ -1,0 +1,31 @@
+// ÖRNEK 1: NotFoundException Kullanımı
+// var property = await _repository.GetAsync(id);
+// if (property == null)
+//     throw new NotFoundException($"Property with id {id} not found");
+
+
+// ÖRNEK 2: ValidationException Kullanımı
+// var errors = new Dictionary<string, string[]>
+// {
+//     { "Email", new[] { "Email format is invalid" } },
+//     { "Age", new[] { "Age must be greater than 18" } }
+// };
+// throw new ValidationException(errors);
+
+
+// ÖRNEK 3: ConflictException Kullanımı
+// var existingUser = await _userRepository.GetAsync(x => x.Email == email);
+// if (existingUser != null)
+//     throw new ConflictException($"User with email {email} already exists");
+
+
+// ÖRNEK 4: BusinessException Kullanımı
+// if (property.Status != PropertyStatus.Available)
+//     throw new BusinessException("Property is not available for sale");
+
+
+// ÖRNEK 5: Automatic Exception Handling
+// - ArgumentNullException -> 400 Bad Request
+// - KeyNotFoundException -> 404 Not Found
+// - UnauthorizedAccessException -> 401 Unauthorized
+// - Diğer Exception -> 500 Internal Server Error

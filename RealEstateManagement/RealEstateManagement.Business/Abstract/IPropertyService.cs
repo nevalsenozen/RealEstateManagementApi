@@ -6,7 +6,7 @@ namespace RealEstateManagement.Business.Abstract;
 
 public interface IPropertyService
 {
-    Task<ResponseDto<PagedResultDto<PropertyDto>>> GetAllPagedAsync(
+    Task<ResponseDto<PagedResultDto<PropertyCreateDto>>> GetAllPagedAsync(
         PaginationQueryDto paginationQueryDto,
         Expression<Func<Property, bool>>? predicate = null,
         Func<IQueryable<Property>, IOrderedQueryable<Property>>? orderBy = null,
@@ -14,9 +14,9 @@ public interface IPropertyService
         int? categoryId = null,
         bool? isDeleted = null);
 
-        Task<ResponseDto<PropertyDto>> GetAsync(int id);
+        Task<ResponseDto<PropertyCreateDto>> GetAsync(int id);
 
-        Task<ResponseDto<IEnumerable<PropertyDto>>> GetAllAsync(
+        Task<ResponseDto<IEnumerable<PropertyCreateDto>>> GetAllAsync(
         Expression<Func<Property, bool>>? predicate,
         Func<IQueryable<Property>, IOrderedQueryable<Property>>? orderBy,
         bool? includeCategories = null,
@@ -24,10 +24,10 @@ public interface IPropertyService
         bool? isDeleted = null);
 
 
-        Task<ResponseDto<PropertyDto>> CreateAsync(PropertyCreateDto propertyCreateDto);
-        Task<ResponseDto<PropertyDto>> UpdateAsync(int id, PropertyUpdateDto propertyUpdateDto);
-        Task<ResponseDto<PropertyDto>> SoftDeleteAsync(int id);
+        Task<ResponseDto<PropertyCreateDto>> CreateAsync(PropertyCreateDto propertyCreateDto);
+        Task<ResponseDto<NoContent>> UpdateAsync(int id, PropertyUpdateDto propertyUpdateDto);
+        Task<ResponseDto<NoContent>> SoftDeleteAsync(int id);
 
-        Task<ResponseDto<List<PropertyDto>>> GetMyPropertiesAsync(PropertyFilterDto filterDto);
+        Task<ResponseDto<List<PropertyCreateDto>>> GetMyPropertiesAsync(PropertyFilterDto filterDto);
 
 }

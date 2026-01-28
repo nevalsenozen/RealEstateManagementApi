@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v10.0": {
       "RealEstateManagement.Data/1.0.0": {
         "dependencies": {
+          "LinqKit.Microsoft.EntityFrameworkCore": "10.0.9",
           "Microsoft.EntityFrameworkCore": "10.0.2",
           "Microsoft.EntityFrameworkCore.Design": "10.0.2",
           "Microsoft.EntityFrameworkCore.Relational": "10.0.2",
@@ -23,6 +24,26 @@
           "lib/net6.0/Humanizer.dll": {
             "assemblyVersion": "2.14.0.0",
             "fileVersion": "2.14.1.48190"
+          }
+        }
+      },
+      "LinqKit.Core/1.2.9": {
+        "runtime": {
+          "lib/netstandard2.1/LinqKit.Core.dll": {
+            "assemblyVersion": "1.2.9.0",
+            "fileVersion": "1.2.9.0"
+          }
+        }
+      },
+      "LinqKit.Microsoft.EntityFrameworkCore/10.0.9": {
+        "dependencies": {
+          "LinqKit.Core": "1.2.9",
+          "Microsoft.EntityFrameworkCore": "10.0.2"
+        },
+        "runtime": {
+          "lib/net10.0/LinqKit.Microsoft.EntityFrameworkCore.dll": {
+            "assemblyVersion": "10.0.9.0",
+            "fileVersion": "10.0.9.0"
           }
         }
       },
@@ -765,6 +786,20 @@
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
+    },
+    "LinqKit.Core/1.2.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-o8zNpo4/Fk0rW58QjYxH6AvvhmB/i9AagphKDEGVnwkbtzRdy7C1v4bFhpTQTjSUMANmbsqGEXMNqX293oEQVg==",
+      "path": "linqkit.core/1.2.9",
+      "hashPath": "linqkit.core.1.2.9.nupkg.sha512"
+    },
+    "LinqKit.Microsoft.EntityFrameworkCore/10.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dF4ivXCs2etZsdTEfmyKqDmhkgpPfCGFdufyXvlGPo8gg5T2vsaDIIQVvsn3Cdrr6cCV01kR+g+5topLC9R46g==",
+      "path": "linqkit.microsoft.entityframeworkcore/10.0.9",
+      "hashPath": "linqkit.microsoft.entityframeworkcore.10.0.9.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/10.0.2": {
       "type": "package",

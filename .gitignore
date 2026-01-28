@@ -1,0 +1,30 @@
+# Logs
+logs/
+*.log
+
+# IDE
+.vs/
+.vscode/
+*.user
+*.suo
+*.sln.docstates
+
+# Build output
+bin/
+obj/
+*.o
+*.so
+*.dylib
+
+# Dependencies
+packages/
+node_modules/
+.nuget/
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db

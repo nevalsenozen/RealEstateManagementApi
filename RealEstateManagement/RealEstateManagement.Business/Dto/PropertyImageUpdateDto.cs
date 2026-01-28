@@ -6,5 +6,4 @@ public class PropertyImageUpdateDto : PropertyImageCreateDto
 {
     public int Id { get; set; }
     
-
 }
