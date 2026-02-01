@@ -71,6 +71,9 @@ var builder = WebApplication.CreateBuilder(args);
         // Business Services
         builder.Services.AddScoped<IPropertyImageService, PropertyImageService>();
         builder.Services.AddScoped<IPropertyService, PropertyService>();
+        builder.Services.AddScoped<IPropertyTypeService, PropertyTypeService>();
+        builder.Services.AddScoped<IUserService, UserService>();
+        builder.Services.AddScoped<IInquiryService, InquiryService>();
         builder.Services.AddScoped<IAuthService, AuthService>();
 
        

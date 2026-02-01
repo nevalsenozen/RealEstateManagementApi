@@ -4,6 +4,15 @@ namespace RealEstateManagement.Data.Abstract;
 
 public interface IRepository<T> where T : class
 {
+    Task<(IEnumerable<T> Data, int TotalCount)> GetPagedAsync(
+        Expression<Func<T, bool>>? predicate = null,
+        Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
+        int skip = 0,
+        int take = 10,
+        bool showIsDeleted = false,
+        bool asExpanded = false,
+        params Func<IQueryable<T>, IQueryable<T>>[] includes
+    );
     Task<T> GetAsync(int id);
 
     Task<T> GetAsync(

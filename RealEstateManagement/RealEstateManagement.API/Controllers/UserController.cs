@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RealEstateManagement.API.Controllers;
+using RealEstateManagement.Business.Abstract;
 using RealEstateManagement.Business.Dto;
+using System.Security.Claims;
 
 namespace RealEstate.API.Controllers
 {
@@ -9,46 +11,70 @@ namespace RealEstate.API.Controllers
     [ApiController]
     public class UsersController : CustomControllerBase
     {
-        // GET /api/users/me   - Kendi profil bilgilerini getir
+        private readonly IUserService _userService;
+
+        public UsersController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
+       
         [Authorize]
         [HttpGet("me")]
         public async Task<IActionResult> GetMyProfile()
         {
-            return base.Ok();
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized();
+            }
+
+            var result = await _userService.GetMyProfileAsync(userId);
+            return CreateResult(result);
         }
 
-        // PUT /api/users/me   - Kendi profilini güncelle
+        
         [Authorize]
         [HttpPut("me")]
         public async Task<IActionResult> UpdateMyProfile([FromBody] UserUpdateDto userUpdateDto)
         {
-            return base.Ok();
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized();
+            }
+
+            var result = await _userService.UpdateMyProfileAsync(userId, userUpdateDto);
+            return CreateResult(result);
         }
 
-        // GET /api/users   - Tüm kullanıcıları listele (Admin)
+        
         [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
-            return base.Ok();
+            var result = await _userService.GetAllUsersAsync();
+            return CreateResult(result);
         }
 
-        // GET /api/users/{id}   - Kullanıcı detayını getir (Admin)
+        
         [Authorize(Roles = "Admin")]
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUserById(int id)
+        public async Task<IActionResult> GetUserById(string id)
         {
-            return base.Ok();
+            var result = await _userService.GetUserByIdAsync(id);
+            return CreateResult(result);
         }
 
-        // PUT /api/users/{id}/role   - Kullanıcı rolünü güncelle (Admin)
+      
         [Authorize(Roles = "Admin")]
         [HttpPut("{id}/role")]
         public async Task<IActionResult> UpdateUserRole(
-            int id,
+            string id,
             [FromBody] UserRoleUpdateDto userRoleUpdateDto)
         {
-            return base.Ok();
+            var result = await _userService.UpdateUserRoleAsync(id, userRoleUpdateDto);
+            return CreateResult(result);
         }
     }
 }

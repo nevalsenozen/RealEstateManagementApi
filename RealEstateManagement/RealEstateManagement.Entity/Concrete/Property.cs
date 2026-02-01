@@ -25,6 +25,7 @@ namespace RealEstateManagement.Entity.Concrete
 
         public int PropertyTypeId { get; set; }
         public PropertyType? PropertyType { get; set; } 
+        public AppUser? Agent { get; set; }
 
         public ICollection<PropertyImage>? Images { get; set; } 
         public ICollection<Inquiry>? Inquiries { get; set; }

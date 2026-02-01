@@ -49,7 +49,7 @@ public class AuthService : IAuthService
             }
            
             var tokenDto = await GenerateJwtToken(appUser);
-            return ResponseDto<TokenDto>.Success(tokenDto, "Token başarıyla oluşturuldu", StatusCodes.Status200OK);
+            return ResponseDto<TokenDto>.Success(tokenDto, StatusCodes.Status200OK);
         }
         catch (Exception ex)
         {
@@ -102,7 +102,7 @@ public class AuthService : IAuthService
                 Email = appUser.Email,
                 EmailConfirmed = appUser.EmailConfirmed
             };
-            return ResponseDto<AppUserDto>.Success(appUserDto, "Kullanıcı başarıyla kayıt edildi", StatusCodes.Status201Created);
+            return ResponseDto<AppUserDto>.Success(appUserDto, StatusCodes.Status201Created);
         }
         catch (Exception ex)
         {

@@ -5,10 +5,51 @@ using RealEstateManagement.Data.Abstract;
 
 namespace RealEstateManagement.Data.Concrete;
 
+
 public class Repository<T> : IRepository<T> where T : class
 {
     protected readonly RealEstateManagementDbContext _context;
     private readonly DbSet<T> _dbSet;
+
+
+    public async Task<(IEnumerable<T> Data, int TotalCount)> GetPagedAsync(
+        Expression<Func<T, bool>>? predicate = null,
+        Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
+        int skip = 0,
+        int take = 10,
+        bool showIsDeleted = false,
+        bool asExpanded = false,
+        params Func<IQueryable<T>, IQueryable<T>>[] includes)
+    {
+        IQueryable<T> query = _dbSet;
+        if (showIsDeleted)
+        {
+            query = query.IgnoreQueryFilters();
+        }
+
+        if (asExpanded)
+        {
+            query = query.AsExpandable();
+        }
+        if (predicate != null)
+        {
+            query = query.Where(predicate);
+        }
+        var totalCount = await query.CountAsync();
+        if (orderBy != null)
+        {
+            query = orderBy(query);
+        }
+
+        query = query.Skip(skip).Take(take);
+
+        if (includes != null && includes.Length > 0)
+        {
+            query = includes.Aggregate(query, (current, include) => include(current));
+        }
+        var data = await query.ToListAsync();
+        return (data, totalCount);
+    }
 
     public Repository(RealEstateManagementDbContext context)
     {
