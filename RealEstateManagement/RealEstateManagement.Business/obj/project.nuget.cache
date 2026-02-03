@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "h7WLOG/S2Pw=",
+  "dgSpecHash": "yfwyEYk1lC0=",
   "success": true,
   "projectFilePath": "C:\\GitHub\\RealEstateManagementApi\\RealEstateManagement\\RealEstateManagement.Business\\RealEstateManagement.Business.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\neval\\.nuget\\packages\\automapper\\16.0.0\\automapper.16.0.0.nupkg.sha512",
+    "C:\\Users\\neval\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\neval\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\neval\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
     "C:\\Users\\neval\\.nuget\\packages\\jwt\\11.0.0\\jwt.11.0.0.nupkg.sha512",
@@ -63,18 +63,5 @@
     "C:\\Users\\neval\\.nuget\\packages\\system.security.cryptography.pkcs\\8.0.1\\system.security.cryptography.pkcs.8.0.1.nupkg.sha512",
     "C:\\Users\\neval\\.nuget\\packages\\system.security.cryptography.xml\\8.0.2\\system.security.cryptography.xml.8.0.2.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "message": "Detected package version outside of dependency constraint: AutoMapper.Extensions.Microsoft.DependencyInjection 12.0.1 requires AutoMapper (= 12.0.1) but version AutoMapper 16.0.0 was resolved.",
-      "projectPath": "C:\\GitHub\\RealEstateManagementApi\\RealEstateManagement\\RealEstateManagement.Business\\RealEstateManagement.Business.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\GitHub\\RealEstateManagementApi\\RealEstateManagement\\RealEstateManagement.Business\\RealEstateManagement.Business.csproj",
-      "libraryId": "AutoMapper",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  "logs": []
 }

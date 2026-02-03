@@ -140,7 +140,7 @@ namespace RealEstateManagement.Business.Concrete
         {
             try
             {
-                var inquiries = await _inquiryRepository.GetAllAsync(x => x.UserId == userId);
+                var inquiries = await _inquiryRepository.GetAllAsync(x => x.User.Id == userId);
                 var dtos = _mapper.Map<IEnumerable<InquiryCreateDto>>(inquiries);
                 return ResponseDto<IEnumerable<InquiryCreateDto>>.Success(dtos, StatusCodes.Status200OK);
             }

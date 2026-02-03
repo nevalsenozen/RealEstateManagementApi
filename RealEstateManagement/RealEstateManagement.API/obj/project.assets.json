@@ -17,18 +17,15 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "AutoMapper/16.0.0": {
+      "AutoMapper/12.0.1": {
         "type": "package",
-        "dependencies": {
-          "Microsoft.IdentityModel.JsonWebTokens": "8.14.0"
-        },
         "compile": {
-          "lib/net10.0/AutoMapper.dll": {
+          "lib/netstandard2.1/AutoMapper.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net10.0/AutoMapper.dll": {
+          "lib/netstandard2.1/AutoMapper.dll": {
             "related": ".xml"
           }
         }
@@ -43,59 +40,6 @@
         },
         "runtime": {
           "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
-        }
-      },
-      "Azure.Core/1.44.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
-          "System.ClientModel": "1.1.0",
-          "System.Memory.Data": "6.0.0"
-        },
-        "compile": {
-          "lib/net6.0/Azure.Core.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Azure.Core.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Azure.Identity/1.10.4": {
-        "type": "package",
-        "dependencies": {
-          "Azure.Core": "1.36.0",
-          "Microsoft.Identity.Client": "4.56.0",
-          "Microsoft.Identity.Client.Extensions.Msal": "4.56.0",
-          "System.Security.Cryptography.ProtectedData": "4.7.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Azure.Identity.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Azure.Identity.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Azure.Security.KeyVault.Secrets/4.7.0": {
-        "type": "package",
-        "dependencies": {
-          "Azure.Core": "1.44.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Azure.Security.KeyVault.Secrets.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Azure.Security.KeyVault.Secrets.dll": {
-            "related": ".xml"
-          }
         }
       },
       "FluentValidation/12.1.1": {
@@ -261,57 +205,6 @@
         ],
         "build": {
           "build/Microsoft.AspNetCore.OpenApi.targets": {}
-        }
-      },
-      "Microsoft.Azure.KeyVault/2.3.2": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Azure.KeyVault.WebKey": "2.0.7",
-          "Microsoft.Rest.ClientRuntime": "[2.3.8, 3.0.0)",
-          "Microsoft.Rest.ClientRuntime.Azure": "[3.3.7, 4.0.0)",
-          "NETStandard.Library": "1.6.1",
-          "Newtonsoft.Json": "9.0.1"
-        },
-        "compile": {
-          "lib/netstandard1.4/Microsoft.Azure.KeyVault.dll": {
-            "related": ".runtimeconfig.json;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard1.4/Microsoft.Azure.KeyVault.dll": {
-            "related": ".runtimeconfig.json;.xml"
-          }
-        }
-      },
-      "Microsoft.Azure.KeyVault.WebKey/2.0.7": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.2",
-          "NETStandard.Library": "1.6.1",
-          "Newtonsoft.Json": "9.0.1"
-        },
-        "compile": {
-          "lib/netstandard1.4/Microsoft.Azure.KeyVault.WebKey.dll": {
-            "related": ".runtimeconfig.json;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard1.4/Microsoft.Azure.KeyVault.WebKey.dll": {
-            "related": ".runtimeconfig.json;.xml"
-          }
-        }
-      },
-      "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
-            "related": ".xml"
-          }
         }
       },
       "Microsoft.Build/17.7.2": {
@@ -1075,27 +968,10 @@
           "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.targets": {}
         }
       },
-      "Microsoft.Extensions.Configuration.AzureKeyVault/2.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Azure.KeyVault": "2.3.2",
-          "Microsoft.IdentityModel.Clients.ActiveDirectory": "3.14.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.AzureKeyVault.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.AzureKeyVault.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.Extensions.DependencyModel/10.0.1": {
         "type": "package",
         "compile": {
-          "lib/net10.0/Microsoft.Extensions.DependencyModel.dll": {
+          "lib/net10.0/_._": {
             "related": ".xml"
           }
         },
@@ -1108,40 +984,6 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Identity.Client/4.56.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.IdentityModel.Abstractions": "6.22.0"
-        },
-        "compile": {
-          "lib/net6.0/Microsoft.Identity.Client.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.Identity.Client.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Microsoft.Identity.Client.Extensions.Msal/4.56.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Identity.Client": "4.56.0",
-          "System.IO.FileSystem.AccessControl": "5.0.0",
-          "System.Security.Cryptography.ProtectedData": "4.5.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Identity.Client.Extensions.Msal.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Identity.Client.Extensions.Msal.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.IdentityModel.Abstractions/8.15.0": {
         "type": "package",
         "compile": {
@@ -1152,28 +994,6 @@
         "runtime": {
           "lib/net10.0/Microsoft.IdentityModel.Abstractions.dll": {
             "related": ".xml"
-          }
-        }
-      },
-      "Microsoft.IdentityModel.Clients.ActiveDirectory/3.14.1": {
-        "type": "package",
-        "dependencies": {
-          "NETStandard.Library": "1.6.0"
-        },
-        "compile": {
-          "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll": {
-            "related": ".pdb"
-          },
-          "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.dll": {
-            "related": ".pdb;.Platform.pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll": {
-            "related": ".pdb"
-          },
-          "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.dll": {
-            "related": ".pdb;.Platform.pdb;.xml"
           }
         }
       },
@@ -1271,15 +1091,6 @@
           }
         }
       },
-      "Microsoft.NETCore.Platforms/1.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard1.0/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard1.0/_._": {}
-        }
-      },
       "Microsoft.OpenApi/2.0.0": {
         "type": "package",
         "compile": {
@@ -1290,41 +1101,6 @@
         "runtime": {
           "lib/net8.0/Microsoft.OpenApi.dll": {
             "related": ".pdb;.xml"
-          }
-        }
-      },
-      "Microsoft.Rest.ClientRuntime/2.3.8": {
-        "type": "package",
-        "dependencies": {
-          "NETStandard.Library": "1.6.1",
-          "Newtonsoft.Json": "9.0.1"
-        },
-        "compile": {
-          "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.dll": {
-            "related": ".runtimeconfig.json;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.dll": {
-            "related": ".runtimeconfig.json;.xml"
-          }
-        }
-      },
-      "Microsoft.Rest.ClientRuntime.Azure/3.3.7": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Rest.ClientRuntime": "[2.3.8, 3.0.0)",
-          "NETStandard.Library": "1.6.1",
-          "Newtonsoft.Json": "9.0.1"
-        },
-        "compile": {
-          "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.Azure.dll": {
-            "related": ".runtimeconfig.json;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.Azure.dll": {
-            "related": ".runtimeconfig.json;.xml"
           }
         }
       },
@@ -1341,12 +1117,6 @@
         },
         "build": {
           "buildTransitive/Mono.TextTemplating.targets": {}
-        }
-      },
-      "NETStandard.Library/1.6.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0"
         }
       },
       "Newtonsoft.Json/13.0.3": {
@@ -1402,159 +1172,6 @@
         },
         "runtime": {
           "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Serilog/4.2.0": {
-        "type": "package",
-        "compile": {
-          "lib/net9.0/Serilog.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net9.0/Serilog.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Serilog.AspNetCore/8.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Serilog": "3.1.1",
-          "Serilog.Extensions.Hosting": "8.0.0",
-          "Serilog.Extensions.Logging": "8.0.0",
-          "Serilog.Formatting.Compact": "2.0.0",
-          "Serilog.Settings.Configuration": "8.0.0",
-          "Serilog.Sinks.Console": "5.0.0",
-          "Serilog.Sinks.Debug": "2.0.0",
-          "Serilog.Sinks.File": "5.0.0"
-        },
-        "compile": {
-          "lib/net8.0/Serilog.AspNetCore.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/Serilog.AspNetCore.dll": {
-            "related": ".xml"
-          }
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "Serilog.Extensions.Hosting/8.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Serilog": "3.1.1",
-          "Serilog.Extensions.Logging": "8.0.0"
-        },
-        "compile": {
-          "lib/net8.0/Serilog.Extensions.Hosting.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/Serilog.Extensions.Hosting.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Serilog.Extensions.Logging/8.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Serilog": "3.1.1"
-        },
-        "compile": {
-          "lib/net8.0/Serilog.Extensions.Logging.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/Serilog.Extensions.Logging.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Serilog.Formatting.Compact/2.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Serilog": "3.1.0"
-        },
-        "compile": {
-          "lib/net7.0/Serilog.Formatting.Compact.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net7.0/Serilog.Formatting.Compact.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Serilog.Settings.Configuration/8.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.DependencyModel": "8.0.0",
-          "Serilog": "3.1.1"
-        },
-        "compile": {
-          "lib/net8.0/Serilog.Settings.Configuration.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/Serilog.Settings.Configuration.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Serilog.Sinks.Console/5.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Serilog": "3.1.1"
-        },
-        "compile": {
-          "lib/net7.0/Serilog.Sinks.Console.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net7.0/Serilog.Sinks.Console.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Serilog.Sinks.Debug/2.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Serilog": "2.10.0"
-        },
-        "compile": {
-          "lib/netstandard2.1/Serilog.Sinks.Debug.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.1/Serilog.Sinks.Debug.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Serilog.Sinks.File/6.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Serilog": "4.0.0"
-        },
-        "compile": {
-          "lib/net8.0/Serilog.Sinks.File.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/Serilog.Sinks.File.dll": {
             "related": ".xml"
           }
         }
@@ -1637,22 +1254,6 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
-      },
-      "System.ClientModel/1.1.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Memory.Data": "1.0.2"
-        },
-        "compile": {
-          "lib/net6.0/System.ClientModel.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/System.ClientModel.dll": {
-            "related": ".xml"
-          }
-        }
       },
       "System.CodeDom/9.0.0": {
         "type": "package",
@@ -1832,41 +1433,6 @@
           }
         }
       },
-      "System.IO.FileSystem.AccessControl/5.0.0": {
-        "type": "package",
-        "compile": {
-          "ref/netstandard2.0/System.IO.FileSystem.AccessControl.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.IO.FileSystem.AccessControl.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/netstandard2.0/System.IO.FileSystem.AccessControl.dll": {
-            "assetType": "runtime",
-            "rid": "win"
-          }
-        }
-      },
-      "System.Memory.Data/6.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/System.Memory.Data.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/System.Memory.Data.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
-        }
-      },
       "System.Reflection.MetadataLoadContext/7.0.0": {
         "type": "package",
         "compile": {
@@ -1927,7 +1493,7 @@
       "System.Security.Cryptography.ProtectedData/9.0.0": {
         "type": "package",
         "compile": {
-          "lib/net9.0/System.Security.Cryptography.ProtectedData.dll": {
+          "lib/net9.0/_._": {
             "related": ".xml"
           }
         },
@@ -1982,7 +1548,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
-          "AutoMapper": "16.0.0",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "FluentValidation": "12.1.1",
           "JWT": "11.0.0",
@@ -2046,28 +1611,19 @@
         "lib/netstandard2.0/AspNetCoreRateLimit.dll"
       ]
     },
-    "AutoMapper/16.0.0": {
-      "sha512": "JIhkKjEsUcIPPbCR7cGQlH3a2ySLW2Tof6CXcJb5WbaoUkniREpJOlC2ROkaM/nck2b5JjptLIUdHvbItGvLGQ==",
+    "AutoMapper/12.0.1": {
+      "sha512": "hvV62vl6Hp/WfQ24yzo3Co9+OPl8wH8hApwVtgWpiAynVJkUcs7xvehnSftawL8Pe8FrPffBRM3hwzLQqWDNjA==",
       "type": "package",
-      "path": "automapper/16.0.0",
+      "path": "automapper/12.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.md",
         "README.md",
-        "automapper.16.0.0.nupkg.sha512",
+        "automapper.12.0.1.nupkg.sha512",
         "automapper.nuspec",
         "icon.png",
-        "lib/net10.0/AutoMapper.dll",
-        "lib/net10.0/AutoMapper.xml",
-        "lib/net471/AutoMapper.dll",
-        "lib/net471/AutoMapper.xml",
-        "lib/net8.0/AutoMapper.dll",
-        "lib/net8.0/AutoMapper.xml",
-        "lib/net9.0/AutoMapper.dll",
-        "lib/net9.0/AutoMapper.xml",
-        "lib/netstandard2.0/AutoMapper.dll",
-        "lib/netstandard2.0/AutoMapper.xml"
+        "lib/netstandard2.1/AutoMapper.dll",
+        "lib/netstandard2.1/AutoMapper.xml"
       ]
     },
     "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
@@ -2082,60 +1638,6 @@
         "automapper.extensions.microsoft.dependencyinjection.nuspec",
         "icon.png",
         "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
-      ]
-    },
-    "Azure.Core/1.44.1": {
-      "sha512": "YyznXLQZCregzHvioip07/BkzjuWNXogJEVz9T5W6TwjNr17ax41YGzYMptlo2G10oLCuVPoyva62y0SIRDixg==",
-      "type": "package",
-      "path": "azure.core/1.44.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "CHANGELOG.md",
-        "README.md",
-        "azure.core.1.44.1.nupkg.sha512",
-        "azure.core.nuspec",
-        "azureicon.png",
-        "lib/net461/Azure.Core.dll",
-        "lib/net461/Azure.Core.xml",
-        "lib/net472/Azure.Core.dll",
-        "lib/net472/Azure.Core.xml",
-        "lib/net6.0/Azure.Core.dll",
-        "lib/net6.0/Azure.Core.xml",
-        "lib/netstandard2.0/Azure.Core.dll",
-        "lib/netstandard2.0/Azure.Core.xml"
-      ]
-    },
-    "Azure.Identity/1.10.4": {
-      "sha512": "hSvisZy9sld0Gik1X94od3+rRXCx+AKgi+iLH6fFdlnRZRePn7RtrqUGSsORiH2h8H2sc4NLTrnuUte1WL+QuQ==",
-      "type": "package",
-      "path": "azure.identity/1.10.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "CHANGELOG.md",
-        "README.md",
-        "azure.identity.1.10.4.nupkg.sha512",
-        "azure.identity.nuspec",
-        "azureicon.png",
-        "lib/netstandard2.0/Azure.Identity.dll",
-        "lib/netstandard2.0/Azure.Identity.xml"
-      ]
-    },
-    "Azure.Security.KeyVault.Secrets/4.7.0": {
-      "sha512": "uOPCojkm41V4dKTORyGzl3/f/lriKpxSQ43fWDn4StRJBVmbF1F/DNWJhwm207kCnqgE/W9+tskJSimIKHCZkw==",
-      "type": "package",
-      "path": "azure.security.keyvault.secrets/4.7.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "CHANGELOG.md",
-        "README.md",
-        "azure.security.keyvault.secrets.4.7.0.nupkg.sha512",
-        "azure.security.keyvault.secrets.nuspec",
-        "azureicon.png",
-        "lib/netstandard2.0/Azure.Security.KeyVault.Secrets.dll",
-        "lib/netstandard2.0/Azure.Security.KeyVault.Secrets.xml"
       ]
     },
     "FluentValidation/12.1.1": {
@@ -2329,61 +1831,6 @@
         "lib/net10.0/Microsoft.AspNetCore.OpenApi.xml",
         "microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
         "microsoft.aspnetcore.openapi.nuspec"
-      ]
-    },
-    "Microsoft.Azure.KeyVault/2.3.2": {
-      "sha512": "A82ESUdfLz2wMhYuPxrwf/fA7JVt3IARgeMCG3TsaLtxUxa9RBKX3f0zdnKmvBvJ/u1/5g03OLR26GPekqY5HQ==",
-      "type": "package",
-      "path": "microsoft.azure.keyvault/2.3.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net452/Microsoft.Azure.KeyVault.dll",
-        "lib/net452/Microsoft.Azure.KeyVault.runtimeconfig.json",
-        "lib/net452/Microsoft.Azure.KeyVault.xml",
-        "lib/netstandard1.4/Microsoft.Azure.KeyVault.dll",
-        "lib/netstandard1.4/Microsoft.Azure.KeyVault.runtimeconfig.json",
-        "lib/netstandard1.4/Microsoft.Azure.KeyVault.xml",
-        "microsoft.azure.keyvault.2.3.2.nupkg.sha512",
-        "microsoft.azure.keyvault.nuspec"
-      ]
-    },
-    "Microsoft.Azure.KeyVault.WebKey/2.0.7": {
-      "sha512": "MVSYao62R9rwl9KF+IsJm+XBLupJj1ma2lfwNeFlSWziXGAopnYK+YkDWqABOqNIV9kpza/MvNBxITzhlJIyIw==",
-      "type": "package",
-      "path": "microsoft.azure.keyvault.webkey/2.0.7",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net452/Microsoft.Azure.KeyVault.WebKey.dll",
-        "lib/net452/Microsoft.Azure.KeyVault.WebKey.runtimeconfig.json",
-        "lib/net452/Microsoft.Azure.KeyVault.WebKey.xml",
-        "lib/netstandard1.4/Microsoft.Azure.KeyVault.WebKey.dll",
-        "lib/netstandard1.4/Microsoft.Azure.KeyVault.WebKey.runtimeconfig.json",
-        "lib/netstandard1.4/Microsoft.Azure.KeyVault.WebKey.xml",
-        "microsoft.azure.keyvault.webkey.2.0.7.nupkg.sha512",
-        "microsoft.azure.keyvault.webkey.nuspec"
-      ]
-    },
-    "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
-      "sha512": "UcSjPsst+DfAdJGVDsu346FX0ci0ah+lw3WRtn18NUwEqRt70HaOQ7lI72vy3+1LxtqI3T5GWwV39rQSrCzAeg==",
-      "type": "package",
-      "path": "microsoft.bcl.asyncinterfaces/6.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll",
-        "lib/net461/Microsoft.Bcl.AsyncInterfaces.xml",
-        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
-        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.xml",
-        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
-        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.xml",
-        "microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
-        "microsoft.bcl.asyncinterfaces.nuspec",
-        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Build/17.7.2": {
@@ -3851,19 +3298,6 @@
         "tools/netcoreapp2.1/System.Diagnostics.DiagnosticSource.dll"
       ]
     },
-    "Microsoft.Extensions.Configuration.AzureKeyVault/2.0.0": {
-      "sha512": "HjuOFvIz9xtzfg9AddX9pjFvghpYKxDwUleLfPORT5Pm7YO1RTq2uN9uc1TxhMglDabkpSuwlfWG1BN64fOHQQ==",
-      "type": "package",
-      "path": "microsoft.extensions.configuration.azurekeyvault/2.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/Microsoft.Extensions.Configuration.AzureKeyVault.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Configuration.AzureKeyVault.xml",
-        "microsoft.extensions.configuration.azurekeyvault.2.0.0.nupkg.sha512",
-        "microsoft.extensions.configuration.azurekeyvault.nuspec"
-      ]
-    },
     "Microsoft.Extensions.DependencyModel/10.0.1": {
       "sha512": "IiWPd4j8JLNjSkyXl5hvJwX2ZENDVQVPDHYgZmYdw8+YkY2xp9iQt0vjdnAQZLpo/ipeW1xgOqfSBEnivKWPYQ==",
       "type": "package",
@@ -3893,55 +3327,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Identity.Client/4.56.0": {
-      "sha512": "rr4zbidvHy9r4NvOAs5hdd964Ao2A0pAeFBJKR95u1CJAVzbd1p6tPTXUZ+5ld0cfThiVSGvz6UHwY6JjraTpA==",
-      "type": "package",
-      "path": "microsoft.identity.client/4.56.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/monoandroid10.0/Microsoft.Identity.Client.dll",
-        "lib/monoandroid10.0/Microsoft.Identity.Client.xml",
-        "lib/monoandroid90/Microsoft.Identity.Client.dll",
-        "lib/monoandroid90/Microsoft.Identity.Client.xml",
-        "lib/net45/Microsoft.Identity.Client.dll",
-        "lib/net45/Microsoft.Identity.Client.xml",
-        "lib/net461/Microsoft.Identity.Client.dll",
-        "lib/net461/Microsoft.Identity.Client.xml",
-        "lib/net6.0-android31.0/Microsoft.Identity.Client.dll",
-        "lib/net6.0-android31.0/Microsoft.Identity.Client.xml",
-        "lib/net6.0-ios15.4/Microsoft.Identity.Client.dll",
-        "lib/net6.0-ios15.4/Microsoft.Identity.Client.xml",
-        "lib/net6.0-windows7.0/Microsoft.Identity.Client.dll",
-        "lib/net6.0-windows7.0/Microsoft.Identity.Client.xml",
-        "lib/net6.0/Microsoft.Identity.Client.dll",
-        "lib/net6.0/Microsoft.Identity.Client.xml",
-        "lib/netcoreapp2.1/Microsoft.Identity.Client.dll",
-        "lib/netcoreapp2.1/Microsoft.Identity.Client.xml",
-        "lib/netstandard2.0/Microsoft.Identity.Client.dll",
-        "lib/netstandard2.0/Microsoft.Identity.Client.xml",
-        "lib/uap10.0.17763/Microsoft.Identity.Client.dll",
-        "lib/uap10.0.17763/Microsoft.Identity.Client.pri",
-        "lib/uap10.0.17763/Microsoft.Identity.Client.xml",
-        "lib/xamarinios10/Microsoft.Identity.Client.dll",
-        "lib/xamarinios10/Microsoft.Identity.Client.xml",
-        "microsoft.identity.client.4.56.0.nupkg.sha512",
-        "microsoft.identity.client.nuspec"
-      ]
-    },
-    "Microsoft.Identity.Client.Extensions.Msal/4.56.0": {
-      "sha512": "H12YAzEGK55vZ+QpxUzozhW8ZZtgPDuWvgA0JbdIR9UhMUplj29JhIgE2imuH8W2Nw9D8JKygR1uxRFtpSNcrg==",
-      "type": "package",
-      "path": "microsoft.identity.client.extensions.msal/4.56.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/Microsoft.Identity.Client.Extensions.Msal.dll",
-        "lib/netstandard2.0/Microsoft.Identity.Client.Extensions.Msal.xml",
-        "microsoft.identity.client.extensions.msal.4.56.0.nupkg.sha512",
-        "microsoft.identity.client.extensions.msal.nuspec"
-      ]
-    },
     "Microsoft.IdentityModel.Abstractions/8.15.0": {
       "sha512": "e/DApa1GfxUqHSBHcpiQg8yaghKAvFVBQFcWh25jNoRobDZbduTUACY8bZ54eeGWXvimGmEDdF0zkS5Dq16XPQ==",
       "type": "package",
@@ -3966,234 +3351,6 @@
         "lib/netstandard2.0/Microsoft.IdentityModel.Abstractions.xml",
         "microsoft.identitymodel.abstractions.8.15.0.nupkg.sha512",
         "microsoft.identitymodel.abstractions.nuspec"
-      ]
-    },
-    "Microsoft.IdentityModel.Clients.ActiveDirectory/3.14.1": {
-      "sha512": "GlyzF4FWsn3LXC6rrzw6Yg2nMbGLx+7JS9a6Z8n7jhqPa5cMiNEX01tBUO1v3A9p1mk+gQzHWJheAsSpOLp/ew==",
-      "type": "package",
-      "path": "microsoft.identitymodel.clients.activedirectory/3.14.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.XML",
-        "lib/MonoAndroid10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll",
-        "lib/MonoAndroid10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.pdb",
-        "lib/MonoAndroid10/Microsoft.IdentityModel.Clients.ActiveDirectory.dll",
-        "lib/MonoAndroid10/Microsoft.IdentityModel.Clients.ActiveDirectory.pdb",
-        "lib/MonoAndroid10/Microsoft.IdentityModel.Clients.ActiveDirectory.xml",
-        "lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.XML",
-        "lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll",
-        "lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.pdb",
-        "lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.dll",
-        "lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.pdb",
-        "lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.xml",
-        "lib/net45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.XML",
-        "lib/net45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll",
-        "lib/net45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.pdb",
-        "lib/net45/Microsoft.IdentityModel.Clients.ActiveDirectory.dll",
-        "lib/net45/Microsoft.IdentityModel.Clients.ActiveDirectory.pdb",
-        "lib/net45/Microsoft.IdentityModel.Clients.ActiveDirectory.xml",
-        "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.XML",
-        "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll",
-        "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.pdb",
-        "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.dll",
-        "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.pdb",
-        "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.xml",
-        "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll",
-        "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.pdb",
-        "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.dll",
-        "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.pdb",
-        "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.xml",
-        "lib/portable-net45+win/Microsoft.IdentityModel.Clients.ActiveDirectory.dll",
-        "lib/portable-net45+win/Microsoft.IdentityModel.Clients.ActiveDirectory.pdb",
-        "lib/portable-net45+win/Microsoft.IdentityModel.Clients.ActiveDirectory.xml",
-        "microsoft.identitymodel.clients.activedirectory.3.14.1.nupkg.sha512",
-        "microsoft.identitymodel.clients.activedirectory.nuspec",
-        "src/src/ADAL.Common/AdalEventSource.cs",
-        "src/src/ADAL.Common/AuthenticationContextIntegratedAuthExtensions.cs",
-        "src/src/ADAL.Common/AuthenticationResult.cs",
-        "src/src/ADAL.Common/ClientAssertionCertificate.cs",
-        "src/src/ADAL.Common/CommonAssemblyInfo.cs",
-        "src/src/ADAL.Common/Constants.cs",
-        "src/src/ADAL.Common/CryptographyHelper.cs",
-        "src/src/ADAL.Common/EncodingHelper.cs",
-        "src/src/ADAL.Common/LocalSettingsHelper.cs",
-        "src/src/ADAL.Common/Logger.cs",
-        "src/src/ADAL.Common/PromptBehavior.cs",
-        "src/src/ADAL.Common/TokenCache.cs",
-        "src/src/ADAL.Common/WebProxyProvider.cs",
-        "src/src/ADAL.PCL.Android/ADAL.PCL.Android.csproj",
-        "src/src/ADAL.PCL.Android/AuthenticationAgentActivity.cs",
-        "src/src/ADAL.PCL.Android/AuthenticationAgentContinuationHelper.cs",
-        "src/src/ADAL.PCL.Android/AuthenticationRequest.cs",
-        "src/src/ADAL.PCL.Android/BrokerConstants.cs",
-        "src/src/ADAL.PCL.Android/BrokerHelper.cs",
-        "src/src/ADAL.PCL.Android/BrokerProxy.cs",
-        "src/src/ADAL.PCL.Android/Constants.cs",
-        "src/src/ADAL.PCL.Android/CryptographyHelper.cs",
-        "src/src/ADAL.PCL.Android/DeviceAuthHelper.cs",
-        "src/src/ADAL.PCL.Android/Logger.cs",
-        "src/src/ADAL.PCL.Android/PlatformInformation.cs",
-        "src/src/ADAL.PCL.Android/PlatformParameters.cs",
-        "src/src/ADAL.PCL.Android/Properties/AssemblyInfo.cs",
-        "src/src/ADAL.PCL.Android/Resources/AboutResources.txt",
-        "src/src/ADAL.PCL.Android/Resources/Resource.Designer.cs",
-        "src/src/ADAL.PCL.Android/Resources/Values/Strings.xml",
-        "src/src/ADAL.PCL.Android/Resources/layout/WebAuthenticationBroker.axml",
-        "src/src/ADAL.PCL.Android/TokenCachePlugin.cs",
-        "src/src/ADAL.PCL.Android/WebProxyProvider.cs",
-        "src/src/ADAL.PCL.Android/WebUI.cs",
-        "src/src/ADAL.PCL.Android/WebUIFactory.cs",
-        "src/src/ADAL.PCL.CoreCLR/ADAL.PCL.CoreCLR.csproj",
-        "src/src/ADAL.PCL.CoreCLR/BrokerHelper.cs",
-        "src/src/ADAL.PCL.CoreCLR/ClientAssertionCertificate.cs",
-        "src/src/ADAL.PCL.CoreCLR/CryptographyHelper.cs",
-        "src/src/ADAL.PCL.CoreCLR/DeviceAuthHelper.cs",
-        "src/src/ADAL.PCL.CoreCLR/PlatformInformation.cs",
-        "src/src/ADAL.PCL.CoreCLR/PlatformParameters.cs",
-        "src/src/ADAL.PCL.CoreCLR/Properties/AssemblyInfo.cs",
-        "src/src/ADAL.PCL.CoreCLR/TokenCachePlugin.cs",
-        "src/src/ADAL.PCL.CoreCLR/WebProxyProvider.cs",
-        "src/src/ADAL.PCL.CoreCLR/WebUIFactory.cs",
-        "src/src/ADAL.PCL.Desktop/ADAL.PCL.Desktop.csproj",
-        "src/src/ADAL.PCL.Desktop/BrokerHelper.cs",
-        "src/src/ADAL.PCL.Desktop/CryptographyHelper.cs",
-        "src/src/ADAL.PCL.Desktop/CustomWebBrowser.CustomWebBrowserEvent.cs",
-        "src/src/ADAL.PCL.Desktop/CustomWebBrowser.cs",
-        "src/src/ADAL.PCL.Desktop/DeviceAuthHelper.cs",
-        "src/src/ADAL.PCL.Desktop/InteractiveWebUI.cs",
-        "src/src/ADAL.PCL.Desktop/Native/BCryptNative.cs",
-        "src/src/ADAL.PCL.Desktop/Native/ICngAlgorithm.cs",
-        "src/src/ADAL.PCL.Desktop/Native/ICngAsymmetricAlgorithm.cs",
-        "src/src/ADAL.PCL.Desktop/Native/NCryptNative.cs",
-        "src/src/ADAL.PCL.Desktop/Native/RSACng.cs",
-        "src/src/ADAL.PCL.Desktop/Native/Win32Native.cs",
-        "src/src/ADAL.PCL.Desktop/Native/X509Native.cs",
-        "src/src/ADAL.PCL.Desktop/NavigateErrorStatus.cs",
-        "src/src/ADAL.PCL.Desktop/PlatformInformation.cs",
-        "src/src/ADAL.PCL.Desktop/PlatformParameters.cs",
-        "src/src/ADAL.PCL.Desktop/Properties/AssemblyInfo.cs",
-        "src/src/ADAL.PCL.Desktop/SecureClientSecret.cs",
-        "src/src/ADAL.PCL.Desktop/SilentWebUI.cs",
-        "src/src/ADAL.PCL.Desktop/SilentWebUIDoneEventArgs.cs",
-        "src/src/ADAL.PCL.Desktop/SilentWindowsFormsAuthenticationDialog.cs",
-        "src/src/ADAL.PCL.Desktop/StaTaskScheduler.cs",
-        "src/src/ADAL.PCL.Desktop/TokenCachePlugin.cs",
-        "src/src/ADAL.PCL.Desktop/UserPasswordCredential.cs",
-        "src/src/ADAL.PCL.Desktop/WebBrowserInterfaces.cs",
-        "src/src/ADAL.PCL.Desktop/WebBrowserNavigateErrorEventArgs.cs",
-        "src/src/ADAL.PCL.Desktop/WebUI.cs",
-        "src/src/ADAL.PCL.Desktop/WebUIFactory.cs",
-        "src/src/ADAL.PCL.Desktop/WinFormWebAuthenticationDialog.cs",
-        "src/src/ADAL.PCL.Desktop/WindowsFormsWebAuthenticationDialogBase.cs",
-        "src/src/ADAL.PCL.WinRT/ADAL.PCL.WinRT.csproj",
-        "src/src/ADAL.PCL.WinRT/BrokerHelper.cs",
-        "src/src/ADAL.PCL.WinRT/CryptographyHelper.cs",
-        "src/src/ADAL.PCL.WinRT/DeviceAuthHelper.cs",
-        "src/src/ADAL.PCL.WinRT/PlatformInformation.cs",
-        "src/src/ADAL.PCL.WinRT/PlatformParameters.cs",
-        "src/src/ADAL.PCL.WinRT/Properties/AssemblyInfo.cs",
-        "src/src/ADAL.PCL.WinRT/TokenCachePlugin.cs",
-        "src/src/ADAL.PCL.WinRT/WebUI.cs",
-        "src/src/ADAL.PCL.WinRT/WebUIFactory.cs",
-        "src/src/ADAL.PCL.iOS/ADAL.PCL.iOS.csproj",
-        "src/src/ADAL.PCL.iOS/AdalCustomUrlProtocol.cs",
-        "src/src/ADAL.PCL.iOS/AdalInitializer.cs",
-        "src/src/ADAL.PCL.iOS/AuthenticationAgentUINavigationController.cs",
-        "src/src/ADAL.PCL.iOS/AuthenticationAgentUIViewController.cs",
-        "src/src/ADAL.PCL.iOS/AuthenticationContinuationHelper.cs",
-        "src/src/ADAL.PCL.iOS/BrokerConstants.cs",
-        "src/src/ADAL.PCL.iOS/BrokerHelper.cs",
-        "src/src/ADAL.PCL.iOS/BrokerKeyHelper.cs",
-        "src/src/ADAL.PCL.iOS/Constants.cs",
-        "src/src/ADAL.PCL.iOS/CryptographyHelper.cs",
-        "src/src/ADAL.PCL.iOS/DeviceAuthHelper.cs",
-        "src/src/ADAL.PCL.iOS/GlobalSuppressions.cs",
-        "src/src/ADAL.PCL.iOS/Logger.cs",
-        "src/src/ADAL.PCL.iOS/PlatformInformation.cs",
-        "src/src/ADAL.PCL.iOS/PlatformParameters.cs",
-        "src/src/ADAL.PCL.iOS/Properties/AssemblyInfo.cs",
-        "src/src/ADAL.PCL.iOS/TokenCachePlugin.cs",
-        "src/src/ADAL.PCL.iOS/WebUI.cs",
-        "src/src/ADAL.PCL.iOS/WebUIFactory.cs",
-        "src/src/ADAL.PCL/ADAL.PCL.csproj",
-        "src/src/ADAL.PCL/AdalOption.cs",
-        "src/src/ADAL.PCL/AuthenticationContext.cs",
-        "src/src/ADAL.PCL/AuthenticationParameters.cs",
-        "src/src/ADAL.PCL/AuthenticationResult.cs",
-        "src/src/ADAL.PCL/Authority/Authenticator.cs",
-        "src/src/ADAL.PCL/Authority/AuthenticatorTemplate.cs",
-        "src/src/ADAL.PCL/Authority/AuthenticatorTemplateList.cs",
-        "src/src/ADAL.PCL/Authority/AuthorizationResult.cs",
-        "src/src/ADAL.PCL/Authority/DeviceAuthJWTResponse.cs",
-        "src/src/ADAL.PCL/Authority/IdToken.cs",
-        "src/src/ADAL.PCL/Authority/RequestData.cs",
-        "src/src/ADAL.PCL/Authority/RequestParameters.cs",
-        "src/src/ADAL.PCL/Authority/TokenResponse.cs",
-        "src/src/ADAL.PCL/Cache/CacheQueryData.cs",
-        "src/src/ADAL.PCL/Cache/TokenCacheKey.cs",
-        "src/src/ADAL.PCL/ClientAssertion.cs",
-        "src/src/ADAL.PCL/ClientCredential.cs",
-        "src/src/ADAL.PCL/ClientCreds/ClientKey.cs",
-        "src/src/ADAL.PCL/ClientCreds/JsonWebToken.cs",
-        "src/src/ADAL.PCL/DeviceCodeResult.cs",
-        "src/src/ADAL.PCL/Exceptions/AdalException.cs",
-        "src/src/ADAL.PCL/Exceptions/AdalServiceException.cs",
-        "src/src/ADAL.PCL/Exceptions/AdalSilentTokenAcquisitionException.cs",
-        "src/src/ADAL.PCL/Exceptions/AdalUserMismatchException.cs",
-        "src/src/ADAL.PCL/Exceptions/HttpRequestWrapperException.cs",
-        "src/src/ADAL.PCL/Flows/AcquireTokenByAuthorizationCodeHandler.cs",
-        "src/src/ADAL.PCL/Flows/AcquireTokenForClientHandler.cs",
-        "src/src/ADAL.PCL/Flows/AcquireTokenHandlerBase.cs",
-        "src/src/ADAL.PCL/Flows/AcquireTokenInteractiveHandler.cs",
-        "src/src/ADAL.PCL/Flows/AcquireTokenOnBehalfHandler.cs",
-        "src/src/ADAL.PCL/Flows/AcquireTokenSilentHandler.cs",
-        "src/src/ADAL.PCL/Flows/AuthenticationResultEx.cs",
-        "src/src/ADAL.PCL/Flows/CallState.cs",
-        "src/src/ADAL.PCL/Flows/DeviceCode/AcquireDeviceCodeHandler.cs",
-        "src/src/ADAL.PCL/Flows/DeviceCode/AcquireTokenByDeviceCodeHandler.cs",
-        "src/src/ADAL.PCL/Flows/DeviceCode/DeviceCodeResponse.cs",
-        "src/src/ADAL.PCL/Flows/NonInteractive/AcquireTokenNonInteractiveHandler.cs",
-        "src/src/ADAL.PCL/Flows/NonInteractive/MexParser.cs",
-        "src/src/ADAL.PCL/Flows/NonInteractive/UserRealmDiscoveryResponse.cs",
-        "src/src/ADAL.PCL/Flows/NonInteractive/WsTrustRequest.cs",
-        "src/src/ADAL.PCL/Flows/NonInteractive/WsTrustResponse.cs",
-        "src/src/ADAL.PCL/Http/AdalHttpClient.cs",
-        "src/src/ADAL.PCL/Http/HttpClientFactory.cs",
-        "src/src/ADAL.PCL/Http/HttpClientWrapper.cs",
-        "src/src/ADAL.PCL/Http/HttpMessageHandlerFactory.cs",
-        "src/src/ADAL.PCL/Http/HttpWebResponseWrapper.cs",
-        "src/src/ADAL.PCL/Http/IHttpWebResponse.cs",
-        "src/src/ADAL.PCL/IAdalLogCallback.cs",
-        "src/src/ADAL.PCL/IClientAssertionCertificate.cs",
-        "src/src/ADAL.PCL/IPlatformParameters.cs",
-        "src/src/ADAL.PCL/ISecureClientSecret.cs",
-        "src/src/ADAL.PCL/Platform/IBrokerHelper.cs",
-        "src/src/ADAL.PCL/Platform/ICryptographyHelper.cs",
-        "src/src/ADAL.PCL/Platform/IDeviceAuthHelper.cs",
-        "src/src/ADAL.PCL/Platform/IHttpClient.cs",
-        "src/src/ADAL.PCL/Platform/IHttpClientFactory.cs",
-        "src/src/ADAL.PCL/Platform/ITokenCachePlugin.cs",
-        "src/src/ADAL.PCL/Platform/IWebProxyProvider.cs",
-        "src/src/ADAL.PCL/Platform/IWebUI.cs",
-        "src/src/ADAL.PCL/Platform/IWebUIFactory.cs",
-        "src/src/ADAL.PCL/Platform/LoggerBase.cs",
-        "src/src/ADAL.PCL/Platform/PlatformInformationBase.cs",
-        "src/src/ADAL.PCL/Platform/PlatformPlugin.cs",
-        "src/src/ADAL.PCL/Properties/AssemblyInfo.cs",
-        "src/src/ADAL.PCL/TokenCache.cs",
-        "src/src/ADAL.PCL/TokenCacheItem.cs",
-        "src/src/ADAL.PCL/TokenCacheNotificationArgs.cs",
-        "src/src/ADAL.PCL/UserAssertion.cs",
-        "src/src/ADAL.PCL/UserCredential.cs",
-        "src/src/ADAL.PCL/UserIdentifier.cs",
-        "src/src/ADAL.PCL/UserInfo.cs",
-        "src/src/ADAL.PCL/Utilities/AdalIdHelper.cs",
-        "src/src/ADAL.PCL/Utilities/Base64UrlEncoder.cs",
-        "src/src/ADAL.PCL/Utilities/Constants.cs",
-        "src/src/ADAL.PCL/Utilities/EncodingHelper.cs",
-        "src/src/ADAL.PCL/Utilities/JsonHelper.cs",
-        "src/src/ADAL.PCL/Utilities/OAuthConstants.cs"
       ]
     },
     "Microsoft.IdentityModel.JsonWebTokens/8.15.0": {
@@ -4349,21 +3506,6 @@
         "ref/netstandard2.0/Microsoft.NET.StringTools.xml"
       ]
     },
-    "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
-      "type": "package",
-      "path": "microsoft.netcore.platforms/1.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/netstandard1.0/_._",
-        "microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-        "microsoft.netcore.platforms.nuspec",
-        "runtime.json"
-      ]
-    },
     "Microsoft.OpenApi/2.0.0": {
       "sha512": "GGYLfzV/G/ct80OZ45JxnWP7NvMX1BCugn/lX7TH5o0lcVaviavsLMTxmFV2AybXWjbi3h6FF1vgZiTK6PXndw==",
       "type": "package",
@@ -4382,40 +3524,6 @@
         "microsoft.openapi.nuspec"
       ]
     },
-    "Microsoft.Rest.ClientRuntime/2.3.8": {
-      "sha512": "Hj96LBoCwKY2VQKfSCVGGPV1sSumVjuYnrlpBwL4JSTnSK4b6ZxjLtXj8LgmKav8xJ2gps+UN7eI3hHVFKvBFw==",
-      "type": "package",
-      "path": "microsoft.rest.clientruntime/2.3.8",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net452/Microsoft.Rest.ClientRuntime.dll",
-        "lib/net452/Microsoft.Rest.ClientRuntime.runtimeconfig.json",
-        "lib/net452/Microsoft.Rest.ClientRuntime.xml",
-        "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.dll",
-        "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.runtimeconfig.json",
-        "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.xml",
-        "microsoft.rest.clientruntime.2.3.8.nupkg.sha512",
-        "microsoft.rest.clientruntime.nuspec"
-      ]
-    },
-    "Microsoft.Rest.ClientRuntime.Azure/3.3.7": {
-      "sha512": "6u8JIuvrztse4tPOcvNzAJuzGBP0uY+Ijggk8ZYhp0siGEZ1XfZylf1vpNGUicvwcrhhoIgDW73Z1L6QGssr2g==",
-      "type": "package",
-      "path": "microsoft.rest.clientruntime.azure/3.3.7",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net452/Microsoft.Rest.ClientRuntime.Azure.dll",
-        "lib/net452/Microsoft.Rest.ClientRuntime.Azure.runtimeconfig.json",
-        "lib/net452/Microsoft.Rest.ClientRuntime.Azure.xml",
-        "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.Azure.dll",
-        "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.Azure.runtimeconfig.json",
-        "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.Azure.xml",
-        "microsoft.rest.clientruntime.azure.3.3.7.nupkg.sha512",
-        "microsoft.rest.clientruntime.azure.nuspec"
-      ]
-    },
     "Mono.TextTemplating/3.0.0": {
       "sha512": "YqueG52R/Xej4VVbKuRIodjiAhV0HR/XVbLbNrJhCZnzjnSjgMJ/dCdV0akQQxavX6hp/LC6rqLGLcXeQYU7XA==",
       "type": "package",
@@ -4431,19 +3539,6 @@
         "mono.texttemplating.3.0.0.nupkg.sha512",
         "mono.texttemplating.nuspec",
         "readme.md"
-      ]
-    },
-    "NETStandard.Library/1.6.1": {
-      "sha512": "WcSp3+vP+yHNgS8EV5J7pZ9IRpeDuARBPN28by8zqff1wJQXm26PVU8L3/fYLBJVU7BtDyqNVWq2KlCVvSSR4A==",
-      "type": "package",
-      "path": "netstandard.library/1.6.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "netstandard.library.1.6.1.nupkg.sha512",
-        "netstandard.library.nuspec"
       ]
     },
     "Newtonsoft.Json/13.0.3": {
@@ -4531,222 +3626,6 @@
         "lib/netstandard2.1/Pipelines.Sockets.Unofficial.xml",
         "pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
         "pipelines.sockets.unofficial.nuspec"
-      ]
-    },
-    "Serilog/4.2.0": {
-      "sha512": "gmoWVOvKgbME8TYR+gwMf7osROiWAURterc6Rt2dQyX7wtjZYpqFiA/pY6ztjGQKKV62GGCyOcmtP1UKMHgSmA==",
-      "type": "package",
-      "path": "serilog/4.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "icon.png",
-        "lib/net462/Serilog.dll",
-        "lib/net462/Serilog.xml",
-        "lib/net471/Serilog.dll",
-        "lib/net471/Serilog.xml",
-        "lib/net6.0/Serilog.dll",
-        "lib/net6.0/Serilog.xml",
-        "lib/net8.0/Serilog.dll",
-        "lib/net8.0/Serilog.xml",
-        "lib/net9.0/Serilog.dll",
-        "lib/net9.0/Serilog.xml",
-        "lib/netstandard2.0/Serilog.dll",
-        "lib/netstandard2.0/Serilog.xml",
-        "serilog.4.2.0.nupkg.sha512",
-        "serilog.nuspec"
-      ]
-    },
-    "Serilog.AspNetCore/8.0.1": {
-      "sha512": "B/X+wAfS7yWLVOTD83B+Ip9yl4MkhioaXj90JSoWi1Ayi8XHepEnsBdrkojg08eodCnmOKmShFUN2GgEc6c0CQ==",
-      "type": "package",
-      "path": "serilog.aspnetcore/8.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "icon.png",
-        "lib/net462/Serilog.AspNetCore.dll",
-        "lib/net462/Serilog.AspNetCore.xml",
-        "lib/net6.0/Serilog.AspNetCore.dll",
-        "lib/net6.0/Serilog.AspNetCore.xml",
-        "lib/net7.0/Serilog.AspNetCore.dll",
-        "lib/net7.0/Serilog.AspNetCore.xml",
-        "lib/net8.0/Serilog.AspNetCore.dll",
-        "lib/net8.0/Serilog.AspNetCore.xml",
-        "lib/netstandard2.0/Serilog.AspNetCore.dll",
-        "lib/netstandard2.0/Serilog.AspNetCore.xml",
-        "serilog.aspnetcore.8.0.1.nupkg.sha512",
-        "serilog.aspnetcore.nuspec"
-      ]
-    },
-    "Serilog.Extensions.Hosting/8.0.0": {
-      "sha512": "db0OcbWeSCvYQkHWu6n0v40N4kKaTAXNjlM3BKvcbwvNzYphQFcBR+36eQ/7hMMwOkJvAyLC2a9/jNdUL5NjtQ==",
-      "type": "package",
-      "path": "serilog.extensions.hosting/8.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "icon.png",
-        "lib/net462/Serilog.Extensions.Hosting.dll",
-        "lib/net462/Serilog.Extensions.Hosting.xml",
-        "lib/net6.0/Serilog.Extensions.Hosting.dll",
-        "lib/net6.0/Serilog.Extensions.Hosting.xml",
-        "lib/net7.0/Serilog.Extensions.Hosting.dll",
-        "lib/net7.0/Serilog.Extensions.Hosting.xml",
-        "lib/net8.0/Serilog.Extensions.Hosting.dll",
-        "lib/net8.0/Serilog.Extensions.Hosting.xml",
-        "lib/netstandard2.0/Serilog.Extensions.Hosting.dll",
-        "lib/netstandard2.0/Serilog.Extensions.Hosting.xml",
-        "serilog.extensions.hosting.8.0.0.nupkg.sha512",
-        "serilog.extensions.hosting.nuspec"
-      ]
-    },
-    "Serilog.Extensions.Logging/8.0.0": {
-      "sha512": "YEAMWu1UnWgf1c1KP85l1SgXGfiVo0Rz6x08pCiPOIBt2Qe18tcZLvdBUuV5o1QHvrs8FAry9wTIhgBRtjIlEg==",
-      "type": "package",
-      "path": "serilog.extensions.logging/8.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "lib/net462/Serilog.Extensions.Logging.dll",
-        "lib/net462/Serilog.Extensions.Logging.xml",
-        "lib/net6.0/Serilog.Extensions.Logging.dll",
-        "lib/net6.0/Serilog.Extensions.Logging.xml",
-        "lib/net7.0/Serilog.Extensions.Logging.dll",
-        "lib/net7.0/Serilog.Extensions.Logging.xml",
-        "lib/net8.0/Serilog.Extensions.Logging.dll",
-        "lib/net8.0/Serilog.Extensions.Logging.xml",
-        "lib/netstandard2.0/Serilog.Extensions.Logging.dll",
-        "lib/netstandard2.0/Serilog.Extensions.Logging.xml",
-        "lib/netstandard2.1/Serilog.Extensions.Logging.dll",
-        "lib/netstandard2.1/Serilog.Extensions.Logging.xml",
-        "serilog-extension-nuget.png",
-        "serilog.extensions.logging.8.0.0.nupkg.sha512",
-        "serilog.extensions.logging.nuspec"
-      ]
-    },
-    "Serilog.Formatting.Compact/2.0.0": {
-      "sha512": "ob6z3ikzFM3D1xalhFuBIK1IOWf+XrQq+H4KeH4VqBcPpNcmUgZlRQ2h3Q7wvthpdZBBoY86qZOI2LCXNaLlNA==",
-      "type": "package",
-      "path": "serilog.formatting.compact/2.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "lib/net462/Serilog.Formatting.Compact.dll",
-        "lib/net462/Serilog.Formatting.Compact.xml",
-        "lib/net471/Serilog.Formatting.Compact.dll",
-        "lib/net471/Serilog.Formatting.Compact.xml",
-        "lib/net6.0/Serilog.Formatting.Compact.dll",
-        "lib/net6.0/Serilog.Formatting.Compact.xml",
-        "lib/net7.0/Serilog.Formatting.Compact.dll",
-        "lib/net7.0/Serilog.Formatting.Compact.xml",
-        "lib/netstandard2.0/Serilog.Formatting.Compact.dll",
-        "lib/netstandard2.0/Serilog.Formatting.Compact.xml",
-        "lib/netstandard2.1/Serilog.Formatting.Compact.dll",
-        "lib/netstandard2.1/Serilog.Formatting.Compact.xml",
-        "serilog-extension-nuget.png",
-        "serilog.formatting.compact.2.0.0.nupkg.sha512",
-        "serilog.formatting.compact.nuspec"
-      ]
-    },
-    "Serilog.Settings.Configuration/8.0.0": {
-      "sha512": "nR0iL5HwKj5v6ULo3/zpP8NMcq9E2pxYA6XKTSWCbugVs4YqPyvaqaKOY+OMpPivKp7zMEpax2UKHnDodbRB0Q==",
-      "type": "package",
-      "path": "serilog.settings.configuration/8.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "icon.png",
-        "lib/net462/Serilog.Settings.Configuration.dll",
-        "lib/net462/Serilog.Settings.Configuration.xml",
-        "lib/net6.0/Serilog.Settings.Configuration.dll",
-        "lib/net6.0/Serilog.Settings.Configuration.xml",
-        "lib/net7.0/Serilog.Settings.Configuration.dll",
-        "lib/net7.0/Serilog.Settings.Configuration.xml",
-        "lib/net8.0/Serilog.Settings.Configuration.dll",
-        "lib/net8.0/Serilog.Settings.Configuration.xml",
-        "lib/netstandard2.0/Serilog.Settings.Configuration.dll",
-        "lib/netstandard2.0/Serilog.Settings.Configuration.xml",
-        "serilog.settings.configuration.8.0.0.nupkg.sha512",
-        "serilog.settings.configuration.nuspec"
-      ]
-    },
-    "Serilog.Sinks.Console/5.0.1": {
-      "sha512": "6Jt8jl9y2ey8VV7nVEUAyjjyxjAQuvd5+qj4XYAT9CwcsvR70HHULGBeD+K2WCALFXf7CFsNQT4lON6qXcu2AA==",
-      "type": "package",
-      "path": "serilog.sinks.console/5.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "icon.png",
-        "lib/net462/Serilog.Sinks.Console.dll",
-        "lib/net462/Serilog.Sinks.Console.xml",
-        "lib/net471/Serilog.Sinks.Console.dll",
-        "lib/net471/Serilog.Sinks.Console.xml",
-        "lib/net5.0/Serilog.Sinks.Console.dll",
-        "lib/net5.0/Serilog.Sinks.Console.xml",
-        "lib/net6.0/Serilog.Sinks.Console.dll",
-        "lib/net6.0/Serilog.Sinks.Console.xml",
-        "lib/net7.0/Serilog.Sinks.Console.dll",
-        "lib/net7.0/Serilog.Sinks.Console.xml",
-        "lib/netstandard2.0/Serilog.Sinks.Console.dll",
-        "lib/netstandard2.0/Serilog.Sinks.Console.xml",
-        "lib/netstandard2.1/Serilog.Sinks.Console.dll",
-        "lib/netstandard2.1/Serilog.Sinks.Console.xml",
-        "serilog.sinks.console.5.0.1.nupkg.sha512",
-        "serilog.sinks.console.nuspec"
-      ]
-    },
-    "Serilog.Sinks.Debug/2.0.0": {
-      "sha512": "Y6g3OBJ4JzTyyw16fDqtFcQ41qQAydnEvEqmXjhwhgjsnG/FaJ8GUqF5ldsC/bVkK8KYmqrPhDO+tm4dF6xx4A==",
-      "type": "package",
-      "path": "serilog.sinks.debug/2.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "icon.png",
-        "lib/net45/Serilog.Sinks.Debug.dll",
-        "lib/net45/Serilog.Sinks.Debug.xml",
-        "lib/net46/Serilog.Sinks.Debug.dll",
-        "lib/net46/Serilog.Sinks.Debug.xml",
-        "lib/netstandard1.0/Serilog.Sinks.Debug.dll",
-        "lib/netstandard1.0/Serilog.Sinks.Debug.xml",
-        "lib/netstandard2.0/Serilog.Sinks.Debug.dll",
-        "lib/netstandard2.0/Serilog.Sinks.Debug.xml",
-        "lib/netstandard2.1/Serilog.Sinks.Debug.dll",
-        "lib/netstandard2.1/Serilog.Sinks.Debug.xml",
-        "serilog.sinks.debug.2.0.0.nupkg.sha512",
-        "serilog.sinks.debug.nuspec"
-      ]
-    },
-    "Serilog.Sinks.File/6.0.0": {
-      "sha512": "lxjg89Y8gJMmFxVkbZ+qDgjl+T4yC5F7WSLTvA+5q0R04tfKVLRL/EHpYoJ/MEQd2EeCKDuylBIVnAYMotmh2A==",
-      "type": "package",
-      "path": "serilog.sinks.file/6.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "lib/net462/Serilog.Sinks.File.dll",
-        "lib/net462/Serilog.Sinks.File.xml",
-        "lib/net471/Serilog.Sinks.File.dll",
-        "lib/net471/Serilog.Sinks.File.xml",
-        "lib/net6.0/Serilog.Sinks.File.dll",
-        "lib/net6.0/Serilog.Sinks.File.xml",
-        "lib/net8.0/Serilog.Sinks.File.dll",
-        "lib/net8.0/Serilog.Sinks.File.xml",
-        "lib/netstandard2.0/Serilog.Sinks.File.dll",
-        "lib/netstandard2.0/Serilog.Sinks.File.xml",
-        "serilog-sink-nuget.png",
-        "serilog.sinks.file.6.0.0.nupkg.sha512",
-        "serilog.sinks.file.nuspec"
       ]
     },
     "StackExchange.Redis/2.7.4": {
@@ -4858,24 +3737,6 @@
         "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.xml",
         "swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
-      ]
-    },
-    "System.ClientModel/1.1.0": {
-      "sha512": "UocOlCkxLZrG2CKMAAImPcldJTxeesHnHGHwhJ0pNlZEvEXcWKuQvVOER2/NiOkJGRJk978SNdw3j6/7O9H1lg==",
-      "type": "package",
-      "path": "system.clientmodel/1.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "CHANGELOG.md",
-        "DotNetPackageIcon.png",
-        "README.md",
-        "lib/net6.0/System.ClientModel.dll",
-        "lib/net6.0/System.ClientModel.xml",
-        "lib/netstandard2.0/System.ClientModel.dll",
-        "lib/netstandard2.0/System.ClientModel.xml",
-        "system.clientmodel.1.1.0.nupkg.sha512",
-        "system.clientmodel.nuspec"
       ]
     },
     "System.CodeDom/9.0.0": {
@@ -5151,73 +4012,6 @@
         "system.identitymodel.tokens.jwt.nuspec"
       ]
     },
-    "System.IO.FileSystem.AccessControl/5.0.0": {
-      "sha512": "SxHB3nuNrpptVk+vZ/F+7OHEpoHUIKKMl02bUmYHQr1r+glbZQxs7pRtsf4ENO29TVm2TH3AEeep2fJcy92oYw==",
-      "type": "package",
-      "path": "system.io.filesystem.accesscontrol/5.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net46/System.IO.FileSystem.AccessControl.dll",
-        "lib/net461/System.IO.FileSystem.AccessControl.dll",
-        "lib/net461/System.IO.FileSystem.AccessControl.xml",
-        "lib/netstandard1.3/System.IO.FileSystem.AccessControl.dll",
-        "lib/netstandard2.0/System.IO.FileSystem.AccessControl.dll",
-        "lib/netstandard2.0/System.IO.FileSystem.AccessControl.xml",
-        "ref/net46/System.IO.FileSystem.AccessControl.dll",
-        "ref/net461/System.IO.FileSystem.AccessControl.dll",
-        "ref/net461/System.IO.FileSystem.AccessControl.xml",
-        "ref/netstandard1.3/System.IO.FileSystem.AccessControl.dll",
-        "ref/netstandard1.3/System.IO.FileSystem.AccessControl.xml",
-        "ref/netstandard1.3/de/System.IO.FileSystem.AccessControl.xml",
-        "ref/netstandard1.3/es/System.IO.FileSystem.AccessControl.xml",
-        "ref/netstandard1.3/fr/System.IO.FileSystem.AccessControl.xml",
-        "ref/netstandard1.3/it/System.IO.FileSystem.AccessControl.xml",
-        "ref/netstandard1.3/ja/System.IO.FileSystem.AccessControl.xml",
-        "ref/netstandard1.3/ko/System.IO.FileSystem.AccessControl.xml",
-        "ref/netstandard1.3/ru/System.IO.FileSystem.AccessControl.xml",
-        "ref/netstandard1.3/zh-hans/System.IO.FileSystem.AccessControl.xml",
-        "ref/netstandard1.3/zh-hant/System.IO.FileSystem.AccessControl.xml",
-        "ref/netstandard2.0/System.IO.FileSystem.AccessControl.dll",
-        "ref/netstandard2.0/System.IO.FileSystem.AccessControl.xml",
-        "runtimes/win/lib/net46/System.IO.FileSystem.AccessControl.dll",
-        "runtimes/win/lib/net461/System.IO.FileSystem.AccessControl.dll",
-        "runtimes/win/lib/net461/System.IO.FileSystem.AccessControl.xml",
-        "runtimes/win/lib/netstandard1.3/System.IO.FileSystem.AccessControl.dll",
-        "runtimes/win/lib/netstandard2.0/System.IO.FileSystem.AccessControl.dll",
-        "runtimes/win/lib/netstandard2.0/System.IO.FileSystem.AccessControl.xml",
-        "system.io.filesystem.accesscontrol.5.0.0.nupkg.sha512",
-        "system.io.filesystem.accesscontrol.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
-    "System.Memory.Data/6.0.0": {
-      "sha512": "ntFHArH3I4Lpjf5m4DCXQHJuGwWPNVJPaAvM95Jy/u+2Yzt2ryiyIN04LAogkjP9DeRcEOiviAjQotfmPq/FrQ==",
-      "type": "package",
-      "path": "system.memory.data/6.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/netcoreapp2.0/System.Memory.Data.targets",
-        "buildTransitive/netcoreapp3.1/_._",
-        "lib/net461/System.Memory.Data.dll",
-        "lib/net461/System.Memory.Data.xml",
-        "lib/net6.0/System.Memory.Data.dll",
-        "lib/net6.0/System.Memory.Data.xml",
-        "lib/netstandard2.0/System.Memory.Data.dll",
-        "lib/netstandard2.0/System.Memory.Data.xml",
-        "system.memory.data.6.0.0.nupkg.sha512",
-        "system.memory.data.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
     "System.Reflection.MetadataLoadContext/7.0.0": {
       "sha512": "z9PvtMJra5hK8n+g0wmPtaG7HQRZpTmIPRw5Z0LEemlcdQMHuTD5D7OAY/fZuuz1L9db++QOcDF0gJTLpbMtZQ==",
       "type": "package",
@@ -5410,21 +4204,14 @@
   "projectFileDependencyGroups": {
     "net10.0": [
       "AspNetCoreRateLimit >= 4.0.1",
-      "Azure.Identity >= 1.10.4",
-      "Azure.Security.KeyVault.Secrets >= 4.7.0",
       "FluentValidation >= 12.1.1",
       "FluentValidation.AspNetCore >= 11.3.1",
       "FluentValidation.DependencyInjectionExtensions >= 12.1.1",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 10.0.2",
       "Microsoft.AspNetCore.OpenApi >= 10.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.1",
-      "Microsoft.Extensions.Configuration.AzureKeyVault >= 1.2.2",
       "RealEstateManagement.Business >= 1.0.0",
       "RealEstateManagement.Data >= 1.0.0",
-      "Serilog >= 4.1.1",
-      "Serilog.AspNetCore >= 8.0.1",
-      "Serilog.Sinks.Console >= 5.0.1",
-      "Serilog.Sinks.File >= 6.0.0",
       "StackExchange.Redis >= 2.7.4",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
@@ -5483,14 +4270,6 @@
             "target": "Package",
             "version": "[4.0.1, )"
           },
-          "Azure.Identity": {
-            "target": "Package",
-            "version": "[1.10.4, )"
-          },
-          "Azure.Security.KeyVault.Secrets": {
-            "target": "Package",
-            "version": "[4.7.0, )"
-          },
           "FluentValidation": {
             "target": "Package",
             "version": "[12.1.1, )"
@@ -5516,26 +4295,6 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[10.0.1, )"
-          },
-          "Microsoft.Extensions.Configuration.AzureKeyVault": {
-            "target": "Package",
-            "version": "[1.2.2, )"
-          },
-          "Serilog": {
-            "target": "Package",
-            "version": "[4.1.1, )"
-          },
-          "Serilog.AspNetCore": {
-            "target": "Package",
-            "version": "[8.0.1, )"
-          },
-          "Serilog.Sinks.Console": {
-            "target": "Package",
-            "version": "[5.0.1, )"
-          },
-          "Serilog.Sinks.File": {
-            "target": "Package",
-            "version": "[6.0.0, )"
           },
           "StackExchange.Redis": {
             "target": "Package",
@@ -5982,87 +4741,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "RealEstateManagement.API depends on Microsoft.Extensions.Configuration.AzureKeyVault (>= 1.2.2) but Microsoft.Extensions.Configuration.AzureKeyVault 1.2.2 was not found. Microsoft.Extensions.Configuration.AzureKeyVault 2.0.0 was resolved instead.",
-      "libraryId": "Microsoft.Extensions.Configuration.AzureKeyVault",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "RealEstateManagement.API depends on Serilog (>= 4.1.1) but Serilog 4.1.1 was not found. Serilog 4.2.0 was resolved instead.",
-      "libraryId": "Serilog",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package version outside of dependency constraint: AutoMapper.Extensions.Microsoft.DependencyInjection 12.0.1 requires AutoMapper (= 12.0.1) but version AutoMapper 16.0.0 was resolved.",
-      "libraryId": "AutoMapper",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Azure.Identity' 1.10.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m5vv-6r4h-3vj9",
-      "libraryId": "Azure.Identity",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Azure.Identity' 1.10.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-wvxc-855f-jvrv",
-      "libraryId": "Azure.Identity",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.Identity.Client' 4.56.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m5vv-6r4h-3vj9",
-      "libraryId": "Microsoft.Identity.Client",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1901",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.Identity.Client' 4.56.0 has a known low severity vulnerability, https://github.com/advisories/GHSA-x674-v45j-fwxw",
-      "libraryId": "Microsoft.Identity.Client",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.Rest.ClientRuntime' 2.3.8 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-whph-446h-6m9v",
-      "libraryId": "Microsoft.Rest.ClientRuntime",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  }
 }

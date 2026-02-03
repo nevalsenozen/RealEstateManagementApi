@@ -1,8 +1,7 @@
 using System.Net;
 using System.Text.Json;
-using Microsoft.AspNetCore.Http;
 using RealEstateManagement.Business.Dto;
-using RealEstateManagement.API.Exceptions;
+using RealEstateManagement.Business.Exceptions;
 
 namespace RealEstateManagement.API.Middleware;
 
@@ -10,11 +9,13 @@ public class ExceptionHandlingMiddleware
 {
     private readonly RequestDelegate _next;
     private readonly ILogger<ExceptionHandlingMiddleware> _logger;
+    private readonly IWebHostEnvironment _environment;
 
-    public ExceptionHandlingMiddleware(RequestDelegate next, ILogger<ExceptionHandlingMiddleware> logger)
+    public ExceptionHandlingMiddleware(RequestDelegate next, ILogger<ExceptionHandlingMiddleware> logger, IWebHostEnvironment environment)
     {
         _next = next;
         _logger = logger;
+        _environment = environment;
     }
 
     public async Task InvokeAsync(HttpContext context)
@@ -25,87 +26,66 @@ public class ExceptionHandlingMiddleware
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "An unhandled exception occurred");
             await HandleExceptionAsync(context, ex);
         }
     }
 
-    private static Task HandleExceptionAsync(HttpContext context, Exception exception)
+    private async Task HandleExceptionAsync(HttpContext context, Exception exception)
     {
         context.Response.ContentType = "application/json";
-
-        var response = new ErrorResponseDto
-        {
-            IsSucceed = false,
-            Message = "An error occurred while processing your request.",
-            TraceId = context.TraceIdentifier
-        };
+        var response = context.Response;
+        ResponseDto<object> errorResponse;
 
         switch (exception)
         {
-            case NotFoundException notFoundEx:
-                context.Response.StatusCode = (int)HttpStatusCode.NotFound;
-                response.Message = notFoundEx.Message;
-                response.Details = "The requested resource was not found";
+            case NotFoundException notFoundException:
+                response.StatusCode = (int)HttpStatusCode.NotFound;
+                errorResponse = ResponseDto<object>.Fail(notFoundException.Message, (int)HttpStatusCode.NotFound);
+                _logger.LogWarning(exception, "Kaynak bulunamadı:{Mesaj}", notFoundException.Message);
                 break;
 
-            case ValidationException validationEx:
-                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                response.Message = "Validation failed";
-                response.ValidationErrors = validationEx.Errors;
-                response.Details = exception.Message;
+            case ValidationException validationException:
+                response.StatusCode = (int)HttpStatusCode.BadRequest;
+
+                var validationMessage =
+                    validationException.Errors.Any()
+                        ? string.Join("; ", validationException.Errors.SelectMany(e => e.Value.Select(v => $"{e.Key}: {v}")))
+                        : validationException.Message;
+
+                errorResponse = ResponseDto<object>.Fail(validationMessage, (int)HttpStatusCode.BadRequest);
+                _logger.LogWarning(exception, "BACKEND 13 Doğrulama hatası:{Mesaj}", validationException.Message);
                 break;
 
-            case ConflictException conflictEx:
-                context.Response.StatusCode = (int)HttpStatusCode.Conflict;
-                response.Message = conflictEx.Message;
-                response.Details = "A conflict occurred with the existing resource";
+            case UnauthorizedException unauthorizedException:
+                response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                errorResponse = ResponseDto<object>.Fail(unauthorizedException.Message, (int)HttpStatusCode.Unauthorized);
+                _logger.LogWarning(exception, "Yetki hatası:{Mesaj}", unauthorizedException.Message);
                 break;
 
-            case BusinessException businessEx:
-                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                response.Message = businessEx.Message;
-                response.Details = "Business logic validation failed";
-                break;
-
-            case ArgumentNullException argNullEx:
-                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                response.Message = $"Required parameter is missing: {argNullEx.ParamName}";
-                response.Details = argNullEx.Message;
-                break;
-
-            case ArgumentException argEx:
-                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                response.Message = "Invalid argument provided";
-                response.Details = argEx.Message;
-                break;
-
-            case InvalidOperationException invOpEx:
-                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                response.Message = "Invalid operation";
-                response.Details = invOpEx.Message;
-                break;
-
-            case KeyNotFoundException keyNotEx:
-                context.Response.StatusCode = (int)HttpStatusCode.NotFound;
-                response.Message = "Resource not found";
-                response.Details = keyNotEx.Message;
-                break;
-
-            case UnauthorizedAccessException unAuthEx:
-                context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                response.Message = "Unauthorized access";
-                response.Details = unAuthEx.Message;
+            case BusinessException businessException:
+                response.StatusCode = businessException.StatusCode;
+                var businessErrorMessage = _environment.IsDevelopment()
+                    ? $"[{businessException.ErrorCode}] {businessException.Message}"
+                    : businessException.Message;
+                errorResponse = ResponseDto<object>.Fail(businessErrorMessage, businessException.StatusCode);
+                _logger.LogWarning(exception, "Servis hatası:{Hata Kodu} - {Mesaj}", businessException.ErrorCode, businessException.Message);
                 break;
 
             default:
-                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                response.Message = "Internal server error occurred";
-                response.Details = exception.Message;
+                response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                var errorMessage = _environment.IsDevelopment()
+                    ? exception.Message
+                    : "Bir hata oluştu.";
+                errorResponse = ResponseDto<object>.Fail(errorMessage, (int)HttpStatusCode.InternalServerError);
+                _logger.LogWarning(exception, "Beklenmedik hata:{Mesaj}", exception.Message);
                 break;
         }
+        var options = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        };
 
-        return context.Response.WriteAsJsonAsync(response);
+        var jsonResponse = JsonSerializer.Serialize(errorResponse, options);
+        await response.WriteAsync(jsonResponse);
     }
 }
-

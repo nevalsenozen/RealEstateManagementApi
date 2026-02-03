@@ -8,8 +8,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Http;
 using RealEstateManagement.Business.Configs;
-
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.EntityFrameworkCore;
 
 namespace RealEstateManagement.Business.Concrete;
 
@@ -110,39 +110,129 @@ public class AuthService : IAuthService
         }
     }
 
+    public async Task<ResponseDto<TokenDto>> RefreshTokenAsync(RefreshTokenDto refreshTokenDto)
+    {
+        try
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_jwtConfig.Secret);
+            
+            var principal = tokenHandler.ValidateToken(refreshTokenDto.Token, new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(key),
+                ValidateIssuer = true,
+                ValidIssuer = _jwtConfig.Issuer,
+                ValidateAudience = true,
+                ValidAudience = _jwtConfig.Audience,
+                ValidateLifetime = false
+            }, out SecurityToken validatedToken);
+            
+            if (validatedToken is not JwtSecurityToken jwtToken || 
+                !jwtToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return ResponseDto<TokenDto>.Fail("Geçersiz token", StatusCodes.Status400BadRequest);
+            }
+            
+            var userIdClaim = principal?.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim is null)
+            {
+                return ResponseDto<TokenDto>.Fail("Token içinde kullanıcı bilgisi bulunamadı", StatusCodes.Status400BadRequest);
+            }
+            
+            var appUser = await _userManager.FindByIdAsync(userIdClaim.Value);
+            if (appUser is null)
+            {
+                return ResponseDto<TokenDto>.Fail("Kullanıcı bulunamadı", StatusCodes.Status404NotFound);
+            }
+            
+            // Generate only access token for refresh token response
+            var roles = await _userManager.GetRolesAsync(appUser);
+            var claims = new List<Claim>
+            {
+                new (ClaimTypes.NameIdentifier, appUser.Id),
+                new (ClaimTypes.Name, appUser.UserName!),
+                new (JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            }.Union(roles.Select(x => new Claim(ClaimTypes.Role, x)));
+
+            var key2 = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfig.Secret));
+            var credentials = new SigningCredentials(key2, SecurityAlgorithms.HmacSha256);
+
+            var accessTokenExpiry = DateTime.UtcNow.AddMinutes(_jwtConfig.AccessTokenExpiration);
+            var accessToken = new JwtSecurityToken(
+                issuer: _jwtConfig.Issuer,
+                audience: _jwtConfig.Audience,
+                claims: claims,
+                expires: accessTokenExpiry,
+                signingCredentials: credentials
+            );
+
+            var tokenDto = new TokenDto
+            {
+                AccessToken = tokenHandler.WriteToken(accessToken),
+                AccessTokenExpirationDate = accessTokenExpiry
+            };
+            
+            return ResponseDto<TokenDto>.Success(tokenDto, StatusCodes.Status200OK);
+        }
+        catch (Exception ex)
+        {
+            return ResponseDto<TokenDto>.Fail($"Token yenileme başarısız: {ex.Message}", StatusCodes.Status500InternalServerError);
+        }
+    }
+
     private async Task<TokenDto> GenerateJwtToken(AppUser appUser)
     {
         try
         {
-           
-            var roles = await _userManager.GetRolesAsync(appUser);  // admin, student
+            var roles = await _userManager.GetRolesAsync(appUser);
             var claims = new List<Claim>
-        {
-            new (ClaimTypes.NameIdentifier,appUser.Id),
-            new (ClaimTypes.Name, appUser.UserName!),
-            new (JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-        }.Union(roles.Select(x => new Claim(ClaimTypes.Role, x)));
+            {
+                new (ClaimTypes.NameIdentifier, appUser.Id),
+                new (ClaimTypes.Name, appUser.UserName!),
+                new (JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            }.Union(roles.Select(x => new Claim(ClaimTypes.Role, x)));
 
-           
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfig.Secret));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            
-            var expiry = DateTime.Now.AddDays(_jwtConfig.AccessTokenExpiration);
-
-            
-            var token = new JwtSecurityToken(
+            // Access Token - expires in configured minutes
+            var accessTokenExpiry = DateTime.UtcNow.AddMinutes(_jwtConfig.AccessTokenExpiration);
+            var accessToken = new JwtSecurityToken(
                 issuer: _jwtConfig.Issuer,
                 audience: _jwtConfig.Audience,
                 claims: claims,
-                expires: expiry,
+                expires: accessTokenExpiry,
                 signingCredentials: credentials
             );
+
+            // Refresh Token - expires in configured minutes
+            var refreshTokenExpiry = DateTime.UtcNow.AddMinutes(_jwtConfig.RefreshTokenExpiration);
+            var refreshTokenClaims = new List<Claim>
+            {
+                new (ClaimTypes.NameIdentifier, appUser.Id),
+                new (JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+            var refreshToken = new JwtSecurityToken(
+                issuer: _jwtConfig.Issuer,
+                audience: _jwtConfig.Audience,
+                claims: refreshTokenClaims,
+                expires: refreshTokenExpiry,
+                signingCredentials: credentials
+            );
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var refreshTokenString = tokenHandler.WriteToken(refreshToken);
+
             var tokenDto = new TokenDto
             {
-                AccessToken = new JwtSecurityTokenHandler().WriteToken(token),
-                AccessTokenExpirationDate = expiry
+                AccessToken = tokenHandler.WriteToken(accessToken),
+                AccessTokenExpirationDate = accessTokenExpiry,
+                RefreshToken = refreshTokenString,
+                RefreshTokenExpirationDate = refreshTokenExpiry
             };
+            
             return tokenDto;
         }
         catch (Exception ex)

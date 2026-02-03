@@ -50,5 +50,22 @@ namespace RealEstateManagement.API.Controllers
                 throw;
             }
         }
+
+        [HttpPost("refresh-token")]
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenDto refreshTokenDto)
+        {
+            try
+            {
+                _logger.LogInformation("Token refresh attempt");
+                var response = await _authService.RefreshTokenAsync(refreshTokenDto);
+                _logger.LogInformation("Token refresh successful");
+                return CreateResult(response);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Token refresh failed");
+                throw;
+            }
+        }
     }
 }

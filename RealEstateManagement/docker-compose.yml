@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: real-estate-postgres
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "neval123"
+      POSTGRES_DB: "RealEstateManagementDb"
+    ports:
+      - "5420:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d RealEstateManagementDb"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: real-estate-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT= "Production"
+      - ASPNETCORE_URLS=http://+:8080
+      - JwtConfig__Secret=08abb28698bd356ec6728050cee5da95214a0676dba93eaed8e00f7da2987f09
+      - JwtConfig__Issuer=RealEstateManagement_Backend
+      - JwtConfig__Audience=RealEstateManagement_Web
+      - JwtConfig__AccessTokenExpiration=30
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=RealEstateManagementDb;Username=postgres;Password=neval123;
+    ports:
+      - "5000:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

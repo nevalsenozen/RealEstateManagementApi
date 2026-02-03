@@ -8,12 +8,10 @@ namespace RealEstateManagement.Entity.Concrete
         public string Email { get; set; } = "";
         public string Phone { get; set; } = "";
         public string Message { get; set; } = "";
-
-        public int UserId { get; set; }
-
+        //public int UserId { get; set; }
         public string Status { get; set; } = "";
         public Property? Property { get; set; }
-        public AppUser? User { get; set; }
+        public AppUser User { get; set; } = new AppUser();
     }
 
 }
